@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/routes/skill_playground_router_delegate.dart';
 import '../widgets/custom_painting_logo.dart';
 
 class CustomPainterPage extends StatelessWidget {
@@ -9,7 +10,12 @@ class CustomPainterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      leading: const BackButton(),
+      leading: BackButton(
+        onPressed: () {
+          (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
+              .goHome();
+        },
+      ),
       title: Text(title),
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(70.0),

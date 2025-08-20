@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-import '../presentation/home/pages/custom_painter_page.dart';
+import 'routes/skill_playground_router_delegate.dart';
 
 GestureTapCallback? mapOnTapByPlaceTitle(BuildContext context, String title) {
   switch (title) {
     case 'CustomPainter Basics':
       return () {
-        Navigator.of(context).push(
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => CustomPainterPage(title: title),
-          ),
-        );
+        (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
+            .goToCustomPainterPage();
       };
     case 'Navigator 2.0/ RouterDelegate':
       return () {};
     case 'Bloc State Management':
-      return () {};
+      return () {
+        (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
+            .goToBlocStateManagementPage();
+      };
     case 'Performance & Repaints':
       return () {};
     case 'Async Isolates':
