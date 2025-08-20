@@ -1,0 +1,65 @@
+[
+    {
+        "ref": "alaska",
+        "name": "Alaska",
+        "country": "United States",
+        "type": "Mountain",
+        "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/alaska.jpg"
+    },
+    {
+        "ref": "amalfi-coast",
+        "name": "Amalfi Coast",
+        "country": "Italy",
+        "type": "Beach",
+        "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/amalfi-coast.jpg"
+    },
+    {
+        "ref": "amazon-rainforest",
+        "name": "Amazon Rainforest",
+        "country": "Brazil",
+        "type": "Jungle",
+        "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/amazon-rainforest.jpg"
+    },
+    {
+        "ref": "angkor-wat",
+        "name": "Angkor Wat",
+        "country": "Cambodia",
+        "type": "Historic",
+        "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/angkor-wat.jpg"
+    },
+    {
+        "ref": "antelope-canyon",
+        "name": "Antelope Canyon",
+        "country": "United States",
+        "type": "Off-the-beaten-path",
+        "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/antelope-canyon.jpg"
+    },
+    {
+        "ref": "asheville",
+        "name": "Asheville",
+        "country": "USA",
+        "type": "City",
+        "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/asheville.jpg"
+    },
+    {
+        "ref": "bora-bora",
+        "name": "Bora Bora",
+        "country": "French Polynesia",
+        "type": "Island",
+        "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/bora-bora.jpg"
+    },
+    {
+        "ref": "burgundy",
+        "name": "Burgundy",
+        "country": "France",
+        "type": "Rural",
+        "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/burgundy.jpg"
+    },
+    {
+        "ref": "chilean-lake-district",
+        "name": "Chilean Lake District",
+        "country": "Chile",
+        "type": "Lake",
+        "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/chilean-lake-district.jpg"
+    }
+]
