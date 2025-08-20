@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/repository/place_repository.dart';
 import '../../locator.dart';
 import '../../presentation/home/bloc/home_bloc.dart';
-import '../../presentation/home/pages/bloc_state_management_page.dart';
-import '../../presentation/home/pages/custom_painter_page.dart';
+import '../../presentation/counter/page/counter_page.dart';
+import '../../presentation/custom_painter/page/custom_painter_page.dart';
 import '../../presentation/home/pages/home_page.dart';
 import 'skill_playground_router_config.dart';
 
@@ -35,7 +35,7 @@ class SkillPlaygroundRouterDelegate
         ),
         '/bloc' => const MaterialPage<dynamic>(
           key: ValueKey<String>('BlocStateManagementPage'),
-          child: BlocStateManagementPage(),
+          child: CounterPage(),
         ),
         _ => MaterialPage<dynamic>(
           key: const ValueKey<String>('HomePage'),
