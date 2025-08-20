@@ -12,13 +12,18 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  freezed_annotation: ^3.1.0
+  json_annotation: ^4.9.0
   meta: ^1.16.0
 
 dev_dependencies:
   bloc_lint: ^0.3.1
+  build_runner: ^2.7.0
   flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
+  freezed: ^3.2.0
+  json_serializable: ^6.10.0
   
 
 flutter:
