@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/routes/skill_playground_router_delegate.dart';
-import '../widgets/custom_painting_logo.dart';
+import '../widget/custom_painting_logo.dart';
 
 class CustomPainterPage extends StatelessWidget {
   const CustomPainterPage({required this.title, super.key});
