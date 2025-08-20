@@ -20,7 +20,11 @@ class HomeCard extends StatelessWidget {
           child: Text(
             place.title,
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white),
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
           ),
         ),
       ],
