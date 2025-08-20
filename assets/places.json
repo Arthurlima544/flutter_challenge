@@ -62,5 +62,13 @@
         "type": "Rural",
         "title": "Custom Slivers",
         "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/burgundy.jpg"
+    },
+    {
+        "ref": "great-bear-rainforest",
+        "name": "Great Bear Rainforest",
+        "country": "Canada",
+        "type": "Rural",
+        "title": "Platform Channels",
+        "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/great-bear-rainforest.jpg"
     }
 ]
