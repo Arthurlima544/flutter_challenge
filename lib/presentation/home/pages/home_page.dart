@@ -34,24 +34,3 @@ class Home extends StatelessWidget {
     ),
   );
 }
-
-
-
-// GridView.count(
-//         itemCount: state,
-//         crossAxisCount: 2,
-//         padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-//         crossAxisSpacing: 15,
-//         mainAxisSpacing: 15,
-//         children: const <Widget>[
-//           HomeCard(title: 'CustomPainter Basics'),
-//           HomeCard(title: 'Navigator 2.0/ RouterDelegate'),
-//           HomeCard(title: 'Bloc State Management'),
-//           HomeCard(title: 'Platform Channels'),
-//           HomeCard(title: 'Performance & Repaints'),
-//           HomeCard(title: 'Async Isolates'),
-//           HomeCard(title: 'AnimationController Lifecycle'),
-//           HomeCard(title: 'StreamBuilder Error Handling'),
-//           HomeCard(title: 'Custom Slivers'),
-//         ],
-//       ),
