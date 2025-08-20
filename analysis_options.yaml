@@ -11,6 +11,9 @@ analyzer:
     missing_required_param: error
     invalid_null_aware_operator: error
 
+  plugins:
+    - lint_bloc
+
 linter:
   rules:
     - always_declare_return_types
