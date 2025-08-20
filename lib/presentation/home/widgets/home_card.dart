@@ -8,6 +8,7 @@ class HomeCard extends StatelessWidget {
   Widget build(BuildContext context) => Card(
     child: Stack(
       children: <Widget>[
+        const Positioned.fill(child: FlutterLogo()),
         Center(child: Text(title, textAlign: TextAlign.center)),
       ],
     ),
