@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
             mainAxisSpacing: 15,
           ),
           itemBuilder: (BuildContext context, int index) =>
-              HomeCard(title: places[index].title, place: places[index]),
+              HomeCard(place: places[index]),
         ),
         error: (String message) => Center(child: Text(message)),
       ),
