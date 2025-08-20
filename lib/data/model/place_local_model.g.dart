@@ -13,6 +13,7 @@ _PlaceLocalModel _$PlaceLocalModelFromJson(Map<String, dynamic> json) =>
       country: json['country'] as String,
       type: json['type'] as String,
       imageUrl: json['imageUrl'] as String,
+      title: json['title'] as String,
     );
 
 Map<String, dynamic> _$PlaceLocalModelToJson(_PlaceLocalModel instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$PlaceLocalModelToJson(_PlaceLocalModel instance) =>
       'country': instance.country,
       'type': instance.type,
       'imageUrl': instance.imageUrl,
+      'title': instance.title,
     };

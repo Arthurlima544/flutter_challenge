@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Place {
 
- String get type; String get imageUrl;
+ String get type; String get imageUrl; String get title;
 /// Create a copy of Place
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $PlaceCopyWith<Place> get copyWith => _$PlaceCopyWithImpl<Place>(this as Place, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Place&&(identical(other.type, type) || other.type == type)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Place&&(identical(other.type, type) || other.type == type)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.title, title) || other.title == title));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,imageUrl);
+int get hashCode => Object.hash(runtimeType,type,imageUrl,title);
 
 @override
 String toString() {
-  return 'Place(type: $type, imageUrl: $imageUrl)';
+  return 'Place(type: $type, imageUrl: $imageUrl, title: $title)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $PlaceCopyWith<$Res>  {
   factory $PlaceCopyWith(Place value, $Res Function(Place) _then) = _$PlaceCopyWithImpl;
 @useResult
 $Res call({
- String type, String imageUrl
+ String type, String imageUrl, String title
 });
 
 
@@ -65,10 +65,11 @@ class _$PlaceCopyWithImpl<$Res>
 
 /// Create a copy of Place
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? imageUrl = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? imageUrl = null,Object? title = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,imageUrl: null == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -154,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String imageUrl)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String imageUrl,  String title)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Place() when $default != null:
-return $default(_that.type,_that.imageUrl);case _:
+return $default(_that.type,_that.imageUrl,_that.title);case _:
   return orElse();
 
 }
@@ -175,10 +176,10 @@ return $default(_that.type,_that.imageUrl);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String imageUrl)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String imageUrl,  String title)  $default,) {final _that = this;
 switch (_that) {
 case _Place():
-return $default(_that.type,_that.imageUrl);case _:
+return $default(_that.type,_that.imageUrl,_that.title);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +196,10 @@ return $default(_that.type,_that.imageUrl);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String imageUrl)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String imageUrl,  String title)?  $default,) {final _that = this;
 switch (_that) {
 case _Place() when $default != null:
-return $default(_that.type,_that.imageUrl);case _:
+return $default(_that.type,_that.imageUrl,_that.title);case _:
   return null;
 
 }
@@ -210,11 +211,12 @@ return $default(_that.type,_that.imageUrl);case _:
 @JsonSerializable()
 
 class _Place implements Place {
-  const _Place({required this.type, required this.imageUrl});
+  const _Place({required this.type, required this.imageUrl, required this.title});
   factory _Place.fromJson(Map<String, dynamic> json) => _$PlaceFromJson(json);
 
 @override final  String type;
 @override final  String imageUrl;
+@override final  String title;
 
 /// Create a copy of Place
 /// with the given fields replaced by the non-null parameter values.
@@ -229,16 +231,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Place&&(identical(other.type, type) || other.type == type)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Place&&(identical(other.type, type) || other.type == type)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.title, title) || other.title == title));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,imageUrl);
+int get hashCode => Object.hash(runtimeType,type,imageUrl,title);
 
 @override
 String toString() {
-  return 'Place(type: $type, imageUrl: $imageUrl)';
+  return 'Place(type: $type, imageUrl: $imageUrl, title: $title)';
 }
 
 
@@ -249,7 +251,7 @@ abstract mixin class _$PlaceCopyWith<$Res> implements $PlaceCopyWith<$Res> {
   factory _$PlaceCopyWith(_Place value, $Res Function(_Place) _then) = __$PlaceCopyWithImpl;
 @override @useResult
 $Res call({
- String type, String imageUrl
+ String type, String imageUrl, String title
 });
 
 
@@ -266,10 +268,11 @@ class __$PlaceCopyWithImpl<$Res>
 
 /// Create a copy of Place
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? imageUrl = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? imageUrl = null,Object? title = null,}) {
   return _then(_Place(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,imageUrl: null == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

@@ -25,8 +25,11 @@ class PlaceRepositoryLocal implements PlaceRepository {
         case Ok<List<PlaceLocalModel>>(:final List<PlaceLocalModel> value):
           _cachedPlaces = value
               .map(
-                (PlaceLocalModel placeLocal) =>
-                    Place(type: placeLocal.type, imageUrl: placeLocal.imageUrl),
+                (PlaceLocalModel placeLocal) => Place(
+                  type: placeLocal.type,
+                  imageUrl: placeLocal.imageUrl,
+                  title: placeLocal.title,
+                ),
               )
               .toList();
           return Result<List<Place>>.ok(_cachedPlaces!);

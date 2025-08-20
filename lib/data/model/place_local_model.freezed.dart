@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PlaceLocalModel {
 
- String get ref; String get name; String get country; String get type; String get imageUrl;
+ String get ref; String get name; String get country; String get type; String get imageUrl; String get title;
 /// Create a copy of PlaceLocalModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $PlaceLocalModelCopyWith<PlaceLocalModel> get copyWith => _$PlaceLocalModelCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlaceLocalModel&&(identical(other.ref, ref) || other.ref == ref)&&(identical(other.name, name) || other.name == name)&&(identical(other.country, country) || other.country == country)&&(identical(other.type, type) || other.type == type)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlaceLocalModel&&(identical(other.ref, ref) || other.ref == ref)&&(identical(other.name, name) || other.name == name)&&(identical(other.country, country) || other.country == country)&&(identical(other.type, type) || other.type == type)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.title, title) || other.title == title));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,ref,name,country,type,imageUrl);
+int get hashCode => Object.hash(runtimeType,ref,name,country,type,imageUrl,title);
 
 @override
 String toString() {
-  return 'PlaceLocalModel(ref: $ref, name: $name, country: $country, type: $type, imageUrl: $imageUrl)';
+  return 'PlaceLocalModel(ref: $ref, name: $name, country: $country, type: $type, imageUrl: $imageUrl, title: $title)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $PlaceLocalModelCopyWith<$Res>  {
   factory $PlaceLocalModelCopyWith(PlaceLocalModel value, $Res Function(PlaceLocalModel) _then) = _$PlaceLocalModelCopyWithImpl;
 @useResult
 $Res call({
- String ref, String name, String country, String type, String imageUrl
+ String ref, String name, String country, String type, String imageUrl, String title
 });
 
 
@@ -65,13 +65,14 @@ class _$PlaceLocalModelCopyWithImpl<$Res>
 
 /// Create a copy of PlaceLocalModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? ref = null,Object? name = null,Object? country = null,Object? type = null,Object? imageUrl = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? ref = null,Object? name = null,Object? country = null,Object? type = null,Object? imageUrl = null,Object? title = null,}) {
   return _then(_self.copyWith(
 ref: null == ref ? _self.ref : ref // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,country: null == country ? _self.country : country // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,imageUrl: null == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -157,10 +158,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String ref,  String name,  String country,  String type,  String imageUrl)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String ref,  String name,  String country,  String type,  String imageUrl,  String title)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PlaceLocalModel() when $default != null:
-return $default(_that.ref,_that.name,_that.country,_that.type,_that.imageUrl);case _:
+return $default(_that.ref,_that.name,_that.country,_that.type,_that.imageUrl,_that.title);case _:
   return orElse();
 
 }
@@ -178,10 +179,10 @@ return $default(_that.ref,_that.name,_that.country,_that.type,_that.imageUrl);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String ref,  String name,  String country,  String type,  String imageUrl)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String ref,  String name,  String country,  String type,  String imageUrl,  String title)  $default,) {final _that = this;
 switch (_that) {
 case _PlaceLocalModel():
-return $default(_that.ref,_that.name,_that.country,_that.type,_that.imageUrl);case _:
+return $default(_that.ref,_that.name,_that.country,_that.type,_that.imageUrl,_that.title);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +199,10 @@ return $default(_that.ref,_that.name,_that.country,_that.type,_that.imageUrl);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String ref,  String name,  String country,  String type,  String imageUrl)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String ref,  String name,  String country,  String type,  String imageUrl,  String title)?  $default,) {final _that = this;
 switch (_that) {
 case _PlaceLocalModel() when $default != null:
-return $default(_that.ref,_that.name,_that.country,_that.type,_that.imageUrl);case _:
+return $default(_that.ref,_that.name,_that.country,_that.type,_that.imageUrl,_that.title);case _:
   return null;
 
 }
@@ -213,7 +214,7 @@ return $default(_that.ref,_that.name,_that.country,_that.type,_that.imageUrl);ca
 @JsonSerializable()
 
 class _PlaceLocalModel implements PlaceLocalModel {
-  const _PlaceLocalModel({required this.ref, required this.name, required this.country, required this.type, required this.imageUrl});
+  const _PlaceLocalModel({required this.ref, required this.name, required this.country, required this.type, required this.imageUrl, required this.title});
   factory _PlaceLocalModel.fromJson(Map<String, dynamic> json) => _$PlaceLocalModelFromJson(json);
 
 @override final  String ref;
@@ -221,6 +222,7 @@ class _PlaceLocalModel implements PlaceLocalModel {
 @override final  String country;
 @override final  String type;
 @override final  String imageUrl;
+@override final  String title;
 
 /// Create a copy of PlaceLocalModel
 /// with the given fields replaced by the non-null parameter values.
@@ -235,16 +237,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlaceLocalModel&&(identical(other.ref, ref) || other.ref == ref)&&(identical(other.name, name) || other.name == name)&&(identical(other.country, country) || other.country == country)&&(identical(other.type, type) || other.type == type)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlaceLocalModel&&(identical(other.ref, ref) || other.ref == ref)&&(identical(other.name, name) || other.name == name)&&(identical(other.country, country) || other.country == country)&&(identical(other.type, type) || other.type == type)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.title, title) || other.title == title));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,ref,name,country,type,imageUrl);
+int get hashCode => Object.hash(runtimeType,ref,name,country,type,imageUrl,title);
 
 @override
 String toString() {
-  return 'PlaceLocalModel(ref: $ref, name: $name, country: $country, type: $type, imageUrl: $imageUrl)';
+  return 'PlaceLocalModel(ref: $ref, name: $name, country: $country, type: $type, imageUrl: $imageUrl, title: $title)';
 }
 
 
@@ -255,7 +257,7 @@ abstract mixin class _$PlaceLocalModelCopyWith<$Res> implements $PlaceLocalModel
   factory _$PlaceLocalModelCopyWith(_PlaceLocalModel value, $Res Function(_PlaceLocalModel) _then) = __$PlaceLocalModelCopyWithImpl;
 @override @useResult
 $Res call({
- String ref, String name, String country, String type, String imageUrl
+ String ref, String name, String country, String type, String imageUrl, String title
 });
 
 
@@ -272,13 +274,14 @@ class __$PlaceLocalModelCopyWithImpl<$Res>
 
 /// Create a copy of PlaceLocalModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? ref = null,Object? name = null,Object? country = null,Object? type = null,Object? imageUrl = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? ref = null,Object? name = null,Object? country = null,Object? type = null,Object? imageUrl = null,Object? title = null,}) {
   return _then(_PlaceLocalModel(
 ref: null == ref ? _self.ref : ref // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,country: null == country ? _self.country : country // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,imageUrl: null == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

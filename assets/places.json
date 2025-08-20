@@ -4,6 +4,7 @@
         "name": "Alaska",
         "country": "United States",
         "type": "Mountain",
+        "title": "CustomPainter Basics",
         "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/alaska.jpg"
     },
     {
@@ -11,6 +12,7 @@
         "name": "Amalfi Coast",
         "country": "Italy",
         "type": "Beach",
+        "title": "Navigator 2.0/ RouterDelegate",
         "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/amalfi-coast.jpg"
     },
     {
@@ -18,6 +20,7 @@
         "name": "Amazon Rainforest",
         "country": "Brazil",
         "type": "Jungle",
+        "title": "Bloc State Management",
         "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/amazon-rainforest.jpg"
     },
     {
@@ -25,6 +28,7 @@
         "name": "Angkor Wat",
         "country": "Cambodia",
         "type": "Historic",
+        "title": "Performance & Repaints",
         "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/angkor-wat.jpg"
     },
     {
@@ -32,6 +36,7 @@
         "name": "Antelope Canyon",
         "country": "United States",
         "type": "Off-the-beaten-path",
+        "title": "Async Isolates",
         "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/antelope-canyon.jpg"
     },
     {
@@ -39,6 +44,7 @@
         "name": "Asheville",
         "country": "USA",
         "type": "City",
+        "title": "AnimationController Lifecycle",
         "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/asheville.jpg"
     },
     {
@@ -46,6 +52,7 @@
         "name": "Bora Bora",
         "country": "French Polynesia",
         "type": "Island",
+        "title": "StreamBuilder Error Handling",
         "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/bora-bora.jpg"
     },
     {
@@ -53,13 +60,7 @@
         "name": "Burgundy",
         "country": "France",
         "type": "Rural",
+        "title": "Custom Slivers",
         "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/burgundy.jpg"
-    },
-    {
-        "ref": "chilean-lake-district",
-        "name": "Chilean Lake District",
-        "country": "Chile",
-        "type": "Lake",
-        "imageUrl": "https://storage.googleapis.com/tripedia-images/destinations/chilean-lake-district.jpg"
     }
 ]

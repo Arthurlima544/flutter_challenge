@@ -11,6 +11,7 @@ abstract class PlaceLocalModel with _$PlaceLocalModel {
     required String country,
     required String type,
     required String imageUrl,
+    required String title,
   }) = _PlaceLocalModel;
 
   factory PlaceLocalModel.fromJson(Map<String, Object?> json) =>
