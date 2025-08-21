@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 import '../../../utils/result.dart';
-import '../../model/place_local_model.dart';
+import '../../model/place/place_local_model.dart';
 
 class PlaceLocalDatasource {
   Future<Result<List<PlaceLocalModel>>> getLocalPlaces() async {
