@@ -27,7 +27,10 @@ GestureTapCallback? mapOnTapByPlaceTitle(BuildContext context, String title) {
     case 'Custom Slivers':
       return () {};
     case 'Platform Channels':
-      return () {};
+      return () {
+        (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
+            .goToPlataformChannelsPage();
+      };
     default:
       return () {};
   }
