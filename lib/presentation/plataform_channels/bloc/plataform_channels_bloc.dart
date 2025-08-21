@@ -17,8 +17,8 @@ class PlataformChannelsBloc
     on<PlataformChannelsEvent>((
       PlataformChannelsEvent event,
       Emitter<PlataformChannelsState> emit,
-    ) {
-      event.map(
+    ) async {
+      await event.map(
         getPlataformVersion: (_) async {
           emit(const PlataformChannelsState.loading());
           final Result<DeviceInfo> res = await _deviceInfoRepository
