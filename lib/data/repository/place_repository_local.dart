@@ -1,14 +1,14 @@
 import '../../domain/model/place/place.dart';
 import '../../utils/result.dart';
-import '../datasources/local_datasource.dart';
+import '../datasources/assets_local_datasource.dart';
 import '../model/place/place_local_model.dart';
 import 'place_repository.dart';
 
 class PlaceRepositoryLocal implements PlaceRepository {
-  PlaceRepositoryLocal({required LocalDatasource placeLocalDatasource})
-    : _placeLocalDatasource = placeLocalDatasource;
+  PlaceRepositoryLocal({required AssetsLocalDatasource localDatasource})
+    : _localDatasource = localDatasource;
 
-  final LocalDatasource _placeLocalDatasource;
+  final AssetsLocalDatasource _localDatasource;
 
   List<Place>? _cachedPlaces;
 
@@ -18,7 +18,7 @@ class PlaceRepositoryLocal implements PlaceRepository {
       return Result<List<Place>>.ok(_cachedPlaces!);
     }
     try {
-      final Result<List<PlaceLocalModel>> result = await _placeLocalDatasource
+      final Result<List<PlaceLocalModel>> result = await _localDatasource
           .getLocalPlaces();
 
       switch (result) {
