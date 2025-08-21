@@ -28,11 +28,16 @@ class _CustomPaintingLogoState extends State<CustomPaintingLogo>
   }
 
   @override
-  Widget build(BuildContext context) => AnimatedBuilder(
-    animation: _controller,
-    builder: (BuildContext context, Widget? child) => CustomPaint(
-      painter: LogoPainter(rotation: _controller.value * 2 * pi),
-      child: Container(),
+  Widget build(BuildContext context) => SizedBox(
+    width: 200,
+    height: 200,
+
+    child: AnimatedBuilder(
+      animation: _controller,
+      builder: (BuildContext context, Widget? child) => CustomPaint(
+        painter: LogoPainter(rotation: _controller.value * 2 * pi),
+        child: child,
+      ),
     ),
   );
 }

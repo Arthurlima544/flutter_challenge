@@ -30,6 +30,6 @@ class CustomPainterPage extends StatelessWidget {
         ),
       ),
     ),
-    body: const CustomPaintingLogo(),
+    body: const Center(child: RepaintBoundary(child: CustomPaintingLogo())),
   );
 }
