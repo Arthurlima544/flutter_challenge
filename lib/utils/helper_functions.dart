@@ -17,7 +17,10 @@ GestureTapCallback? mapOnTapByPlaceTitle(BuildContext context, String title) {
             .goToBlocStateManagementPage();
       };
     case 'Performance & Repaints':
-      return () {};
+      return () {
+        (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
+            .goToRepaintBoundaryPage();
+      };
     case 'Async Isolates':
       return () {};
     case 'Animation Controller Lifecycle':

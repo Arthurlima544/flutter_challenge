@@ -11,6 +11,7 @@ import '../../presentation/home/bloc/home_bloc.dart';
 import '../../presentation/home/pages/home_page.dart';
 import '../../presentation/plataform_channels/bloc/plataform_channels_bloc.dart';
 import '../../presentation/plataform_channels/pages/plataform_channels_page.dart';
+import '../../presentation/repaint_boundary/page/repaint_boundary_page.dart';
 import 'skill_playground_router_config.dart';
 
 class SkillPlaygroundRouterDelegate
@@ -51,6 +52,13 @@ class SkillPlaygroundRouterDelegate
               deviceInfoRepository: getIt<DeviceInfoRepository>(),
             )..add(const PlataformChannelsEvent.getPlataformVersion()),
             child: const PlataformChannelsPage(),
+          ),
+        ),
+        '/repaint_boundary' => MaterialPage<dynamic>(
+          key: const ValueKey<String>('RepaintBoundaryPage'),
+          child: BlocProvider<CounterBloc>(
+            create: (BuildContext context) => CounterBloc(),
+            child: const RepaintBoundaryPage(),
           ),
         ),
         _ => MaterialPage<dynamic>(
@@ -108,6 +116,13 @@ class SkillPlaygroundRouterDelegate
   void goToPlataformChannelsPage() {
     _currentConfig = const SkillPlaygroundRouterConfig(
       selectedRoute: '/plataform_channels',
+    );
+    notifyListeners();
+  }
+
+  void goToRepaintBoundaryPage() {
+    _currentConfig = const SkillPlaygroundRouterConfig(
+      selectedRoute: '/repaint_boundary',
     );
     notifyListeners();
   }
