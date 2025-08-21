@@ -22,7 +22,10 @@ GestureTapCallback? mapOnTapByPlaceTitle(BuildContext context, String title) {
             .goToRepaintBoundaryPage();
       };
     case 'Async Isolates':
-      return () {};
+      return () {
+        (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
+            .goToIsolatePage();
+      };
     case 'Animation Controller Lifecycle':
       return () {};
     case 'StreamBuilder Error Handling':

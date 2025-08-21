@@ -9,6 +9,8 @@ import '../../presentation/counter/page/counter_page.dart';
 import '../../presentation/custom_painter/page/custom_painter_page.dart';
 import '../../presentation/home/bloc/home_bloc.dart';
 import '../../presentation/home/pages/home_page.dart';
+import '../../presentation/isolate/bloc/isolate_bloc.dart';
+import '../../presentation/isolate/page/isolate_page.dart';
 import '../../presentation/plataform_channels/bloc/plataform_channels_bloc.dart';
 import '../../presentation/plataform_channels/pages/plataform_channels_page.dart';
 import '../../presentation/repaint_boundary/page/repaint_boundary_page.dart';
@@ -59,6 +61,14 @@ class SkillPlaygroundRouterDelegate
           child: BlocProvider<CounterBloc>(
             create: (BuildContext context) => CounterBloc(),
             child: const RepaintBoundaryPage(),
+          ),
+        ),
+
+        '/isolate_page' => MaterialPage<dynamic>(
+          key: const ValueKey<String>('IsolatePage'),
+          child: BlocProvider<IsolateBloc>(
+            create: (BuildContext context) => IsolateBloc(),
+            child: const IsolatePage(),
           ),
         ),
         _ => MaterialPage<dynamic>(
@@ -123,6 +133,13 @@ class SkillPlaygroundRouterDelegate
   void goToRepaintBoundaryPage() {
     _currentConfig = const SkillPlaygroundRouterConfig(
       selectedRoute: '/repaint_boundary',
+    );
+    notifyListeners();
+  }
+
+  void goToIsolatePage() {
+    _currentConfig = const SkillPlaygroundRouterConfig(
+      selectedRoute: '/isolate_page',
     );
     notifyListeners();
   }
