@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'version_local_model.dart';
+part of 'device_info_local_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,22 +13,22 @@ part of 'version_local_model.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$VersionLocalModel {
+mixin _$DeviceInfoLocalModel {
 
  String get version;
-/// Create a copy of VersionLocalModel
+/// Create a copy of DeviceInfoLocalModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$VersionLocalModelCopyWith<VersionLocalModel> get copyWith => _$VersionLocalModelCopyWithImpl<VersionLocalModel>(this as VersionLocalModel, _$identity);
+$DeviceInfoLocalModelCopyWith<DeviceInfoLocalModel> get copyWith => _$DeviceInfoLocalModelCopyWithImpl<DeviceInfoLocalModel>(this as DeviceInfoLocalModel, _$identity);
 
-  /// Serializes this VersionLocalModel to a JSON map.
+  /// Serializes this DeviceInfoLocalModel to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is VersionLocalModel&&(identical(other.version, version) || other.version == version));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceInfoLocalModel&&(identical(other.version, version) || other.version == version));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,15 +37,15 @@ int get hashCode => Object.hash(runtimeType,version);
 
 @override
 String toString() {
-  return 'VersionLocalModel(version: $version)';
+  return 'DeviceInfoLocalModel(version: $version)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $VersionLocalModelCopyWith<$Res>  {
-  factory $VersionLocalModelCopyWith(VersionLocalModel value, $Res Function(VersionLocalModel) _then) = _$VersionLocalModelCopyWithImpl;
+abstract mixin class $DeviceInfoLocalModelCopyWith<$Res>  {
+  factory $DeviceInfoLocalModelCopyWith(DeviceInfoLocalModel value, $Res Function(DeviceInfoLocalModel) _then) = _$DeviceInfoLocalModelCopyWithImpl;
 @useResult
 $Res call({
  String version
@@ -56,14 +56,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$VersionLocalModelCopyWithImpl<$Res>
-    implements $VersionLocalModelCopyWith<$Res> {
-  _$VersionLocalModelCopyWithImpl(this._self, this._then);
+class _$DeviceInfoLocalModelCopyWithImpl<$Res>
+    implements $DeviceInfoLocalModelCopyWith<$Res> {
+  _$DeviceInfoLocalModelCopyWithImpl(this._self, this._then);
 
-  final VersionLocalModel _self;
-  final $Res Function(VersionLocalModel) _then;
+  final DeviceInfoLocalModel _self;
+  final $Res Function(DeviceInfoLocalModel) _then;
 
-/// Create a copy of VersionLocalModel
+/// Create a copy of DeviceInfoLocalModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? version = null,}) {
   return _then(_self.copyWith(
@@ -75,8 +75,8 @@ as String,
 }
 
 
-/// Adds pattern-matching-related methods to [VersionLocalModel].
-extension VersionLocalModelPatterns on VersionLocalModel {
+/// Adds pattern-matching-related methods to [DeviceInfoLocalModel].
+extension DeviceInfoLocalModelPatterns on DeviceInfoLocalModel {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -89,10 +89,10 @@ extension VersionLocalModelPatterns on VersionLocalModel {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _VersionLocalModel value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DeviceInfoLocalModel value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _VersionLocalModel() when $default != null:
+case _DeviceInfoLocalModel() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -111,10 +111,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _VersionLocalModel value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DeviceInfoLocalModel value)  $default,){
 final _that = this;
 switch (_that) {
-case _VersionLocalModel():
+case _DeviceInfoLocalModel():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -132,10 +132,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _VersionLocalModel value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DeviceInfoLocalModel value)?  $default,){
 final _that = this;
 switch (_that) {
-case _VersionLocalModel() when $default != null:
+case _DeviceInfoLocalModel() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -155,7 +155,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String version)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _VersionLocalModel() when $default != null:
+case _DeviceInfoLocalModel() when $default != null:
 return $default(_that.version);case _:
   return orElse();
 
@@ -176,7 +176,7 @@ return $default(_that.version);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String version)  $default,) {final _that = this;
 switch (_that) {
-case _VersionLocalModel():
+case _DeviceInfoLocalModel():
 return $default(_that.version);case _:
   throw StateError('Unexpected subclass');
 
@@ -196,7 +196,7 @@ return $default(_that.version);case _:
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String version)?  $default,) {final _that = this;
 switch (_that) {
-case _VersionLocalModel() when $default != null:
+case _DeviceInfoLocalModel() when $default != null:
 return $default(_that.version);case _:
   return null;
 
@@ -208,26 +208,26 @@ return $default(_that.version);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _VersionLocalModel implements VersionLocalModel {
-  const _VersionLocalModel({required this.version});
-  factory _VersionLocalModel.fromJson(Map<String, dynamic> json) => _$VersionLocalModelFromJson(json);
+class _DeviceInfoLocalModel implements DeviceInfoLocalModel {
+  const _DeviceInfoLocalModel({required this.version});
+  factory _DeviceInfoLocalModel.fromJson(Map<String, dynamic> json) => _$DeviceInfoLocalModelFromJson(json);
 
 @override final  String version;
 
-/// Create a copy of VersionLocalModel
+/// Create a copy of DeviceInfoLocalModel
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$VersionLocalModelCopyWith<_VersionLocalModel> get copyWith => __$VersionLocalModelCopyWithImpl<_VersionLocalModel>(this, _$identity);
+_$DeviceInfoLocalModelCopyWith<_DeviceInfoLocalModel> get copyWith => __$DeviceInfoLocalModelCopyWithImpl<_DeviceInfoLocalModel>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$VersionLocalModelToJson(this, );
+  return _$DeviceInfoLocalModelToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _VersionLocalModel&&(identical(other.version, version) || other.version == version));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DeviceInfoLocalModel&&(identical(other.version, version) || other.version == version));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -236,15 +236,15 @@ int get hashCode => Object.hash(runtimeType,version);
 
 @override
 String toString() {
-  return 'VersionLocalModel(version: $version)';
+  return 'DeviceInfoLocalModel(version: $version)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$VersionLocalModelCopyWith<$Res> implements $VersionLocalModelCopyWith<$Res> {
-  factory _$VersionLocalModelCopyWith(_VersionLocalModel value, $Res Function(_VersionLocalModel) _then) = __$VersionLocalModelCopyWithImpl;
+abstract mixin class _$DeviceInfoLocalModelCopyWith<$Res> implements $DeviceInfoLocalModelCopyWith<$Res> {
+  factory _$DeviceInfoLocalModelCopyWith(_DeviceInfoLocalModel value, $Res Function(_DeviceInfoLocalModel) _then) = __$DeviceInfoLocalModelCopyWithImpl;
 @override @useResult
 $Res call({
  String version
@@ -255,17 +255,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$VersionLocalModelCopyWithImpl<$Res>
-    implements _$VersionLocalModelCopyWith<$Res> {
-  __$VersionLocalModelCopyWithImpl(this._self, this._then);
+class __$DeviceInfoLocalModelCopyWithImpl<$Res>
+    implements _$DeviceInfoLocalModelCopyWith<$Res> {
+  __$DeviceInfoLocalModelCopyWithImpl(this._self, this._then);
 
-  final _VersionLocalModel _self;
-  final $Res Function(_VersionLocalModel) _then;
+  final _DeviceInfoLocalModel _self;
+  final $Res Function(_DeviceInfoLocalModel) _then;
 
-/// Create a copy of VersionLocalModel
+/// Create a copy of DeviceInfoLocalModel
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? version = null,}) {
-  return _then(_VersionLocalModel(
+  return _then(_DeviceInfoLocalModel(
 version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
 as String,
   ));

@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../data/repository/place_repository.dart';
+import '../../../data/repository/place/place_repository.dart';
 import '../../../domain/model/place/place.dart';
 import '../../../utils/result.dart';
 

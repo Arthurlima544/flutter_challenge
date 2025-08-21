@@ -1,7 +1,7 @@
-import '../../domain/model/place/place.dart';
-import '../../utils/result.dart';
-import '../datasources/assets_local_datasource.dart';
-import '../model/place/place_local_model.dart';
+import '../../../domain/model/place/place.dart';
+import '../../../utils/result.dart';
+import '../../datasources/assets_local_datasource.dart';
+import '../../model/place/place_local_model.dart';
 import 'place_repository.dart';
 
 class PlaceRepositoryLocal implements PlaceRepository {
