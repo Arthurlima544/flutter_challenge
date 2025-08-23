@@ -6,12 +6,14 @@ class SkillPlaygroundRouterConfig extends Equatable {
     this.selectedItem,
     this.selectedRoute,
     this.isNotFound = false,
+    this.arguments = const <Object?>[],
   });
 
   final int? id;
   final String? selectedItem;
   final String? selectedRoute;
   final bool isNotFound;
+  final List<Object?> arguments;
 
   @override
   List<Object?> get props => <Object?>[
@@ -19,5 +21,6 @@ class SkillPlaygroundRouterConfig extends Equatable {
     selectedItem,
     selectedRoute,
     isNotFound,
+    arguments,
   ];
 }

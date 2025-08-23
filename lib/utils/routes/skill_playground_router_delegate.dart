@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/repository/device_info/device_info_repository.dart';
 import '../../data/repository/place/place_repository.dart';
 import '../../locator.dart';
+import '../../presentation/animation_controller/page/animation_controller_page.dart';
 import '../../presentation/counter/bloc/counter_bloc.dart';
 import '../../presentation/counter/page/counter_page.dart';
 import '../../presentation/custom_painter/page/custom_painter_page.dart';
@@ -14,6 +15,7 @@ import '../../presentation/isolate/page/isolate_page.dart';
 import '../../presentation/plataform_channels/bloc/plataform_channels_bloc.dart';
 import '../../presentation/plataform_channels/pages/plataform_channels_page.dart';
 import '../../presentation/repaint_boundary/page/repaint_boundary_page.dart';
+import '../../presentation/stream_builder/page/stream_builder_page.dart';
 import 'skill_playground_router_config.dart';
 
 class SkillPlaygroundRouterDelegate
@@ -27,6 +29,8 @@ class SkillPlaygroundRouterDelegate
   final GlobalKey<NavigatorState> navigatorKey;
 
   SkillPlaygroundRouterConfig? _currentConfig;
+
+  List<Object?> get arguments => <Object?>[];
 
   @override
   SkillPlaygroundRouterConfig? get currentConfiguration => _currentConfig;
@@ -70,6 +74,18 @@ class SkillPlaygroundRouterDelegate
             create: (BuildContext context) => IsolateBloc(),
             child: const IsolatePage(),
           ),
+        ),
+
+        '/animation_controller' => MaterialPage<dynamic>(
+          key: const ValueKey<String>('AnimationControllerPage'),
+          child: AnimationControllerPage(
+            imageUrl: _currentConfig!.arguments[0]! as String,
+          ),
+        ),
+
+        '/stream_builder_page' => const MaterialPage<dynamic>(
+          key: ValueKey<String>('StreamBuilderPage'),
+          child: StreamBuilderPage(),
         ),
         _ => MaterialPage<dynamic>(
           key: const ValueKey<String>('HomePage'),
@@ -140,6 +156,21 @@ class SkillPlaygroundRouterDelegate
   void goToIsolatePage() {
     _currentConfig = const SkillPlaygroundRouterConfig(
       selectedRoute: '/isolate_page',
+    );
+    notifyListeners();
+  }
+
+  void goToAnimationControllerPage(String imageUrl) {
+    _currentConfig = SkillPlaygroundRouterConfig(
+      selectedRoute: '/animation_controller',
+      arguments: <Object?>[imageUrl],
+    );
+    notifyListeners();
+  }
+
+  void goToStreamBuilderPage() {
+    _currentConfig = const SkillPlaygroundRouterConfig(
+      selectedRoute: '/stream_builder_page',
     );
     notifyListeners();
   }

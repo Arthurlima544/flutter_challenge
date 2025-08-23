@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../domain/model/place/place.dart';
 import 'routes/skill_playground_router_delegate.dart';
 
-GestureTapCallback? mapOnTapByPlaceTitle(BuildContext context, String title) {
-  switch (title) {
+dynamic mapOnTapByPlaceTitle(BuildContext context, Place place) {
+  switch (place.title) {
     case 'CustomPainter Basics':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
@@ -27,9 +28,15 @@ GestureTapCallback? mapOnTapByPlaceTitle(BuildContext context, String title) {
             .goToIsolatePage();
       };
     case 'Animation Controller Lifecycle':
-      return () {};
+      return () {
+        (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
+            .goToAnimationControllerPage(place.imageUrl);
+      };
     case 'StreamBuilder Error Handling':
-      return () {};
+      return () {
+        (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
+            .goToStreamBuilderPage();
+      };
     case 'Custom Slivers':
       return () {};
     case 'Platform Channels':
