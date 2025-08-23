@@ -10,7 +10,7 @@ class HomeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-    onTap: mapOnTapByPlaceTitle(context, place.title),
+    onTap: mapOnTapByPlaceTitle(context, place),
     child: Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Stack(
