@@ -12,7 +12,7 @@ import '../../presentation/home/bloc/home_bloc.dart';
 import '../../presentation/home/pages/home_page.dart';
 import '../../presentation/isolate/bloc/isolate_bloc.dart';
 import '../../presentation/isolate/page/isolate_page.dart';
-import '../../presentation/navigator/navigator_route_page.dart';
+import '../../presentation/navigator/page/navigator_route_page.dart';
 import '../../presentation/plataform_channels/bloc/plataform_channels_bloc.dart';
 import '../../presentation/plataform_channels/pages/plataform_channels_page.dart';
 import '../../presentation/repaint_boundary/page/repaint_boundary_page.dart';
