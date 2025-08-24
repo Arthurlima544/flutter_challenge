@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/routes/skill_playground_router_delegate.dart';
+
 enum AnimationSimpleState { notStated, paused, moving, completed }
 
 TextSpan mapAnimationSimpleStateToTextWidget(AnimationSimpleState state) {
@@ -98,7 +100,15 @@ class _AnimationControllerPageState extends State<AnimationControllerPage>
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Animation Controller page')),
+      appBar: AppBar(
+        title: const Text('Animation Controller page'),
+        leading: BackButton(
+          onPressed: () {
+            (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
+                .goHome();
+          },
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

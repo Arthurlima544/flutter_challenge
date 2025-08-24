@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../utils/routes/skill_playground_router_delegate.dart';
 import '../../counter/bloc/counter_bloc.dart';
 import '../widgets/large_list.dart';
 
@@ -16,7 +17,16 @@ class _RepaintBoundaryPageState extends State<RepaintBoundaryPage> {
   Widget build(BuildContext context) => BlocBuilder<CounterBloc, CounterState>(
     builder: (BuildContext context, CounterState state) => state.when(
       counter: (int counter) => Scaffold(
-        appBar: AppBar(title: const Text('Repaint Boundary Page')),
+        appBar: AppBar(
+          title: const Text('Repaint Boundary Page'),
+          leading: BackButton(
+            onPressed: () {
+              (Router.of(context).routerDelegate
+                      as SkillPlaygroundRouterDelegate)
+                  .goHome();
+            },
+          ),
+        ),
         body: Column(
           children: <Widget>[
             Text(

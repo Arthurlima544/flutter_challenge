@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/routes/skill_playground_router_delegate.dart';
+
 class SliversPage extends StatelessWidget {
   const SliversPage({super.key});
 
@@ -7,11 +9,18 @@ class SliversPage extends StatelessWidget {
   Widget build(BuildContext context) => Material(
     child: CustomScrollView(
       slivers: <Widget>[
-        const SliverAppBar(
+        SliverAppBar(
           backgroundColor: Colors.cyanAccent,
           pinned: true,
-          expandedHeight: 150.0,
-          flexibleSpace: FlexibleSpaceBar(title: Text('Custom Slivers')),
+          expandedHeight: 50.0,
+          title: const Text('Custom Slivers'),
+          leading: BackButton(
+            onPressed: () {
+              (Router.of(context).routerDelegate
+                      as SkillPlaygroundRouterDelegate)
+                  .goHome();
+            },
+          ),
         ),
         SliverFixedExtentList(
           delegate: SliverChildListDelegate(<Widget>[
