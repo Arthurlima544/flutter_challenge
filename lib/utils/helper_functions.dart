@@ -38,7 +38,10 @@ dynamic mapOnTapByPlaceTitle(BuildContext context, Place place) {
             .goToStreamBuilderPage();
       };
     case 'Custom Slivers':
-      return () {};
+      return () {
+        (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
+            .goToSliversPage();
+      };
     case 'Platform Channels':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)

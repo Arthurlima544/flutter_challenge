@@ -15,6 +15,7 @@ import '../../presentation/isolate/page/isolate_page.dart';
 import '../../presentation/plataform_channels/bloc/plataform_channels_bloc.dart';
 import '../../presentation/plataform_channels/pages/plataform_channels_page.dart';
 import '../../presentation/repaint_boundary/page/repaint_boundary_page.dart';
+import '../../presentation/slivers/slivers_page.dart';
 import '../../presentation/stream_builder/page/stream_builder_page.dart';
 import 'skill_playground_router_config.dart';
 
@@ -87,6 +88,12 @@ class SkillPlaygroundRouterDelegate
           key: ValueKey<String>('StreamBuilderPage'),
           child: StreamBuilderPage(),
         ),
+
+        '/slivers_page' => const MaterialPage<dynamic>(
+          key: ValueKey<String>('SliversPage'),
+          child: SliversPage(),
+        ),
+
         _ => MaterialPage<dynamic>(
           key: const ValueKey<String>('HomePage'),
           child: Scaffold(
@@ -171,6 +178,13 @@ class SkillPlaygroundRouterDelegate
   void goToStreamBuilderPage() {
     _currentConfig = const SkillPlaygroundRouterConfig(
       selectedRoute: '/stream_builder_page',
+    );
+    notifyListeners();
+  }
+
+  void goToSliversPage() {
+    _currentConfig = const SkillPlaygroundRouterConfig(
+      selectedRoute: '/slivers_page',
     );
     notifyListeners();
   }
