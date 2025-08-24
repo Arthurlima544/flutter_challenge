@@ -217,11 +217,17 @@ Dependências usadas apenas durante o desenvolvimento, ou seja, não há a neces
 
 Para cada funcionalidade foi criado um simples card, pegando algumas imagens de lugares famosos ao redor do mundo em imagens gratuitas do Google, para trazer um aspecto visual melhor do que apenas o nome de cada página.
 
+<img width="369" height="830" alt="Captura de ecrã 2025-08-24, às 10 57 06" src="https://github.com/user-attachments/assets/5b8ff2d5-26f1-492c-bbd1-47abb5c48049" />
+
 Fonte: própria
 
 ### 2. CustomPainter Screen
 
 Para a tela de CustomPainter, foi criado o logo da empresa For People Software utilizando o CustomPainter. Para fugir um pouco do óbvio, juntei com uma simples animação que faz o logo girar utilizando o AnimationController. 
+
+
+https://github.com/user-attachments/assets/46a93031-992a-4b71-ac25-7d7c6ee6f3ad
+
 
 Além disso, também inseri o RepaintBoundary para melhorar a performance, evitando que o CustomPainter seja redesenhado desnecessariamente.
 
@@ -229,34 +235,77 @@ Além disso, também inseri o RepaintBoundary para melhorar a performance, evita
 
 Representa uma tela simples explicando o conceito de Router 2.0.
 
+
+https://github.com/user-attachments/assets/5767745f-a2e9-408d-8d48-a6e188fe30e6
+
+
+
 ### 4. Bloc Screen
 
 Uma tela simples que incrementa e decrementa um contador utilizando o padrão BLoC.
+
+
+
+https://github.com/user-attachments/assets/f665520f-821c-4cb4-bad5-31e2faa93e70
+
+
 
 ### 5. Platform Channels Screen
 
 Uma página simples que exibe a versão do sistema operacional do dispositivo, obtida através de Platform Channels.
 Foi realizado código tanto para Android quanto para iOS, utilizando MethodChannel para comunicação entre o código Dart e o código nativo.
 
+
+https://github.com/user-attachments/assets/463b3519-1afd-4ead-a8f8-531da8585b83
+
+
 ### 6. Performance Screen
 
 Nessa página foi criado um exemplo simples de uma lista grande, onde cada item é um widget complexo que consome muitos recursos para ser renderizado. Para melhorar a performance, utilizei o `RepaintBoundary`, para isolar cada item da lista e evitar que toda a lista seja redesenhada desnecessariamente quando um item é atualizado ou interagido. Também reutilizei o componente do bloc Counter o mais alto possível na widget tree para verificar se os itens da lista não são redesenhados desnecessariamente quando o contador é alterado.
+
+
+
+Uploading Gravação do ecrã 2025-08-24, às 11.08.20.mov…
+
 
 ### 7. Isolate Screen
 
 Nessa página foi criado um exemplo simples de uso de Isolate com a função `compute` para realizar uma tarefa custosa em segundo plano, sem bloquear a interface do usuário. A tarefa escolhida foi o cálculo de números primos, que pode ser demorado dependendo do intervalo escolhido. O resultado é exibido na tela após a conclusão do cálculo. Existem dois botões: um para calcular os primos na main isolate e outro para calcular em um isolate separado. Assim, é possível ver a diferença de performance entre os dois e como faz diferença utilizar isolates.
 
+
+
+
+https://github.com/user-attachments/assets/0ff465c2-1fb1-440e-b47b-8e14a77c3b43
+
+
+
 ### 8. AnimationController Screen
 
 Nessa página quis fazer algo um pouco diferente, então reutilizei a informação da imagem do próprio card da home e criei uma animação simples que aumenta e diminui o tamanho da imagem utilizando o AnimationController. Nela é possível pausar, aumentar, diminuir e acompanhar os estados da animação.
+
+
+
+https://github.com/user-attachments/assets/da6607bf-6b04-484f-8623-05672d760267
+
+
 
 ### 9. StreamBuilder Screen
 
 Nessa página foi criado um exemplo simples de uso do StreamBuilder para exibir dados que mudam ao longo do tempo. Foi criado um StreamController que emite valores inteiros a cada segundo, simulando dados sendo recebidos. O StreamBuilder escuta esse stream e atualiza a interface do usuário sempre que um novo valor é emitido, exibindo o valor atual na tela. Para isso, há 20% de chance de ocorrer um erro. Sempre que isso acontece, o erro é exibido na tela.
 
+
+
+
+https://github.com/user-attachments/assets/c1d97a94-db27-494f-86b0-6a63c847475b
+
+
 ### 10. Slivers Screen
 
 Nessa página foi criado um exemplo simples de uso de Slivers para criar uma interface de usuário que pode ser rolada de forma eficiente. A tela contém um CustomScrollView que inclui um SliverAppBar, que é uma barra de aplicativo que pode ser expandida e recolhida conforme o usuário rola a tela. Abaixo da SliverAppBar, há um SliverList que exibe uma lista de itens. Cada item da lista é um Card contendo uma imagem e um título, representando diferentes lugares ao redor do mundo. A utilização de Slivers permite uma experiência de rolagem suave e eficiente, especialmente em listas longas ou com muitos elementos visuais e adaptáveis.
+
+
+https://github.com/user-attachments/assets/14cb3790-bb8a-44d1-9af8-c8f246dea6b7
+
 
 ## O que poderia ser melhorado
 
