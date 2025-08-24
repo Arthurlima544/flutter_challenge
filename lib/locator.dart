@@ -2,10 +2,10 @@ import 'package:get_it/get_it.dart';
 
 import 'data/datasources/assets_local_datasource.dart';
 import 'data/datasources/device_info/device_info_local_datasource.dart';
-import 'data/repository/device_info/device_info_local_repository.dart';
-import 'data/repository/device_info/device_info_repository.dart';
-import 'data/repository/place/place_repository.dart';
-import 'data/repository/place/place_repository_local.dart';
+import 'domain/repository/device_info/device_info_local_repository.dart';
+import 'domain/repository/device_info/device_info_repository.dart';
+import 'domain/repository/place/place_repository.dart';
+import 'domain/repository/place/place_repository_local.dart';
 
 final GetIt getIt = GetIt.instance;
 

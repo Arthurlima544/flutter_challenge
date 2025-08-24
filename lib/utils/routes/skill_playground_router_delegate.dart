@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/repository/device_info/device_info_repository.dart';
-import '../../data/repository/place/place_repository.dart';
+import '../../domain/repository/device_info/device_info_repository.dart';
+import '../../domain/repository/place/place_repository.dart';
 import '../../locator.dart';
 import '../../presentation/animation_controller/page/animation_controller_page.dart';
 import '../../presentation/counter/bloc/counter_bloc.dart';

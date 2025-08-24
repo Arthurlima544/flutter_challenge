@@ -2,13 +2,13 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../data/repository/place/place_repository.dart';
 import '../../../domain/model/place/place.dart';
+import '../../../domain/repository/place/place_repository.dart';
 import '../../../utils/result.dart';
 
+part 'home_bloc.freezed.dart';
 part 'home_event.dart';
 part 'home_state.dart';
-part 'home_bloc.freezed.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({required PlaceRepository placeRepository})

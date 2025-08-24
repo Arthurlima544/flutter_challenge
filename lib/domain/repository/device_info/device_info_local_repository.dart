@@ -1,7 +1,7 @@
-import '../../../domain/model/device_info/device_info.dart';
+import '../../../data/datasources/device_info/device_info_local_datasource.dart';
+import '../../../data/model/version/device_info_local_model.dart';
 import '../../../utils/result.dart';
-import '../../datasources/device_info/device_info_local_datasource.dart';
-import '../../model/version/device_info_local_model.dart';
+import '../../model/device_info/device_info.dart';
 import 'device_info_repository.dart';
 
 class DeviceInfoLocalRepository implements DeviceInfoRepository {
