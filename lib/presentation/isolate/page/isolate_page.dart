@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../utils/routes/skill_playground_router_delegate.dart';
 import '../../../utils/widgets/default_appbar.dart';
 import '../../custom_painter/widget/custom_painting_logo.dart';
 import '../bloc/isolate_bloc.dart';
@@ -31,7 +30,6 @@ class _IsolatePageState extends State<IsolatePage> {
   Widget build(BuildContext context) => Scaffold(
     backgroundColor: Colors.grey[50],
     appBar: const DefaultAppbar(titleText: 'Isolate Page'),
-
     body: SingleChildScrollView(
       padding: const EdgeInsets.all(24.0),
       child: Column(
