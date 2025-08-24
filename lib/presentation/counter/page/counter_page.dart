@@ -15,6 +15,7 @@ class CounterPage extends StatelessWidget {
 
       children: <Widget>[
         FloatingActionButton(
+          heroTag: 'fab-add',
           onPressed: () {
             context.read<CounterBloc>().add(
               const CounterEvent.incrementValue(),
@@ -24,6 +25,7 @@ class CounterPage extends StatelessWidget {
         ),
         const SizedBox(width: 16),
         FloatingActionButton(
+          heroTag: 'fab-rem',
           onPressed: () {
             context.read<CounterBloc>().add(
               const CounterEvent.decrementValue(),
