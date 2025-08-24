@@ -10,10 +10,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      title: const Text('Skill Playground'),
-      backgroundColor: Colors.blue,
-    ),
+    appBar: AppBar(title: const Text('Skill Playground')),
     body: BlocBuilder<HomeBloc, HomeState>(
       builder: (BuildContext context, HomeState state) => state.when(
         initial: () => const Center(child: Text('Inicializando..')),

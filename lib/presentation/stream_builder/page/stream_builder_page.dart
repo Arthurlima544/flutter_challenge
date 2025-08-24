@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../../utils/routes/skill_playground_router_delegate.dart';
+import '../../../utils/widgets/default_appbar.dart';
 
 class StreamBuilderPage extends StatefulWidget {
   const StreamBuilderPage({super.key});
@@ -41,14 +41,7 @@ class _StreamBuilderPageState extends State<StreamBuilderPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      leading: BackButton(
-        onPressed: () {
-          (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-              .goHome();
-        },
-      ),
-    ),
+    appBar: const DefaultAppbar(titleText: 'Stream Builder Page'),
     body: Center(
       child: Column(
         children: <Widget>[

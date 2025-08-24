@@ -16,7 +16,7 @@ class CustomPainterPage extends StatelessWidget {
               .goHome();
         },
       ),
-      title: Text(title),
+      title: const Text('Custom Painter Page'),
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(70.0),
         child: Container(

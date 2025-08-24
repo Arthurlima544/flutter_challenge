@@ -13,7 +13,7 @@ class SliversPage extends StatelessWidget {
           backgroundColor: Colors.cyanAccent,
           pinned: true,
           expandedHeight: 50.0,
-          title: const Text('Custom Slivers'),
+          title: const Text('Custom Slivers Page'),
           leading: BackButton(
             onPressed: () {
               (Router.of(context).routerDelegate

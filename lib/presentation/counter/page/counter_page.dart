@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../utils/routes/skill_playground_router_delegate.dart';
+import '../../../utils/widgets/default_appbar.dart';
 import '../bloc/counter_bloc.dart';
 
 class CounterPage extends StatelessWidget {
@@ -9,14 +9,7 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      leading: BackButton(
-        onPressed: () {
-          (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-              .goHome();
-        },
-      ),
-    ),
+    appBar: const DefaultAppbar(titleText: 'Bloc State Managment Page'),
     floatingActionButton: Row(
       mainAxisAlignment: MainAxisAlignment.end,
 
