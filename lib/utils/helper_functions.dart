@@ -11,7 +11,10 @@ dynamic mapOnTapByPlaceTitle(BuildContext context, Place place) {
             .goToCustomPainterPage();
       };
     case 'Navigator 2.0/ RouterDelegate':
-      return () {};
+      return () {
+        (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
+            .goToNavigatorRoutePage();
+      };
     case 'Bloc State Management':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
