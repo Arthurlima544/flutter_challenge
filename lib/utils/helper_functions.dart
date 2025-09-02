@@ -48,7 +48,7 @@ dynamic mapOnTapByPlaceTitle(BuildContext context, Place place) {
     case 'Platform Channels':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-            .goToPlataformChannelsPage();
+            .goToPlatformChannelsPage();
       };
     default:
       return () {};

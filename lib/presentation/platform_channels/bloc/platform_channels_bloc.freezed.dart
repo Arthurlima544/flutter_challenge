@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'plataform_channels_bloc.dart';
+part of 'platform_channels_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,7 +12,7 @@ part of 'plataform_channels_bloc.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
-mixin _$PlataformChannelsEvent {
+mixin _$PlatformChannelsEvent {
 
 
 
@@ -20,7 +20,7 @@ mixin _$PlataformChannelsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlataformChannelsEvent);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlatformChannelsEvent);
 }
 
 
@@ -29,20 +29,20 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'PlataformChannelsEvent()';
+  return 'PlatformChannelsEvent()';
 }
 
 
 }
 
 /// @nodoc
-class $PlataformChannelsEventCopyWith<$Res>  {
-$PlataformChannelsEventCopyWith(PlataformChannelsEvent _, $Res Function(PlataformChannelsEvent) __);
+class $PlatformChannelsEventCopyWith<$Res>  {
+$PlatformChannelsEventCopyWith(PlatformChannelsEvent _, $Res Function(PlatformChannelsEvent) __);
 }
 
 
-/// Adds pattern-matching-related methods to [PlataformChannelsEvent].
-extension PlataformChannelsEventPatterns on PlataformChannelsEvent {
+/// Adds pattern-matching-related methods to [PlatformChannelsEvent].
+extension PlatformChannelsEventPatterns on PlatformChannelsEvent {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -55,11 +55,11 @@ extension PlataformChannelsEventPatterns on PlataformChannelsEvent {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _GetPlataformVersion value)?  getPlataformVersion,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _GetPlatformVersion value)?  getPlatformVersion,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _GetPlataformVersion() when getPlataformVersion != null:
-return getPlataformVersion(_that);case _:
+case _GetPlatformVersion() when getPlatformVersion != null:
+return getPlatformVersion(_that);case _:
   return orElse();
 
 }
@@ -77,11 +77,11 @@ return getPlataformVersion(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _GetPlataformVersion value)  getPlataformVersion,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _GetPlatformVersion value)  getPlatformVersion,}){
 final _that = this;
 switch (_that) {
-case _GetPlataformVersion():
-return getPlataformVersion(_that);case _:
+case _GetPlatformVersion():
+return getPlatformVersion(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -98,11 +98,11 @@ return getPlataformVersion(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _GetPlataformVersion value)?  getPlataformVersion,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _GetPlatformVersion value)?  getPlatformVersion,}){
 final _that = this;
 switch (_that) {
-case _GetPlataformVersion() when getPlataformVersion != null:
-return getPlataformVersion(_that);case _:
+case _GetPlatformVersion() when getPlatformVersion != null:
+return getPlatformVersion(_that);case _:
   return null;
 
 }
@@ -119,10 +119,10 @@ return getPlataformVersion(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  getPlataformVersion,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  getPlatformVersion,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _GetPlataformVersion() when getPlataformVersion != null:
-return getPlataformVersion();case _:
+case _GetPlatformVersion() when getPlatformVersion != null:
+return getPlatformVersion();case _:
   return orElse();
 
 }
@@ -140,10 +140,10 @@ return getPlataformVersion();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  getPlataformVersion,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  getPlatformVersion,}) {final _that = this;
 switch (_that) {
-case _GetPlataformVersion():
-return getPlataformVersion();case _:
+case _GetPlatformVersion():
+return getPlatformVersion();case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -160,10 +160,10 @@ return getPlataformVersion();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  getPlataformVersion,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  getPlatformVersion,}) {final _that = this;
 switch (_that) {
-case _GetPlataformVersion() when getPlataformVersion != null:
-return getPlataformVersion();case _:
+case _GetPlatformVersion() when getPlatformVersion != null:
+return getPlatformVersion();case _:
   return null;
 
 }
@@ -174,8 +174,8 @@ return getPlataformVersion();case _:
 /// @nodoc
 
 
-class _GetPlataformVersion implements PlataformChannelsEvent {
-  const _GetPlataformVersion();
+class _GetPlatformVersion implements PlatformChannelsEvent {
+  const _GetPlatformVersion();
   
 
 
@@ -185,7 +185,7 @@ class _GetPlataformVersion implements PlataformChannelsEvent {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetPlataformVersion);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetPlatformVersion);
 }
 
 
@@ -194,7 +194,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'PlataformChannelsEvent.getPlataformVersion()';
+  return 'PlatformChannelsEvent.getPlatformVersion()';
 }
 
 
@@ -204,7 +204,7 @@ String toString() {
 
 
 /// @nodoc
-mixin _$PlataformChannelsState {
+mixin _$PlatformChannelsState {
 
 
 
@@ -212,7 +212,7 @@ mixin _$PlataformChannelsState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlataformChannelsState);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlatformChannelsState);
 }
 
 
@@ -221,20 +221,20 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'PlataformChannelsState()';
+  return 'PlatformChannelsState()';
 }
 
 
 }
 
 /// @nodoc
-class $PlataformChannelsStateCopyWith<$Res>  {
-$PlataformChannelsStateCopyWith(PlataformChannelsState _, $Res Function(PlataformChannelsState) __);
+class $PlatformChannelsStateCopyWith<$Res>  {
+$PlatformChannelsStateCopyWith(PlatformChannelsState _, $Res Function(PlatformChannelsState) __);
 }
 
 
-/// Adds pattern-matching-related methods to [PlataformChannelsState].
-extension PlataformChannelsStatePatterns on PlataformChannelsState {
+/// Adds pattern-matching-related methods to [PlatformChannelsState].
+extension PlatformChannelsStatePatterns on PlatformChannelsState {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -384,7 +384,7 @@ return success(_that.osversion);case _:
 /// @nodoc
 
 
-class _Initial implements PlataformChannelsState {
+class _Initial implements PlatformChannelsState {
   const _Initial();
   
 
@@ -404,7 +404,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'PlataformChannelsState.initial()';
+  return 'PlatformChannelsState.initial()';
 }
 
 
@@ -416,7 +416,7 @@ String toString() {
 /// @nodoc
 
 
-class _Loading implements PlataformChannelsState {
+class _Loading implements PlatformChannelsState {
   const _Loading();
   
 
@@ -436,7 +436,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'PlataformChannelsState.loading()';
+  return 'PlatformChannelsState.loading()';
 }
 
 
@@ -448,13 +448,13 @@ String toString() {
 /// @nodoc
 
 
-class _Error implements PlataformChannelsState {
+class _Error implements PlatformChannelsState {
   const _Error(this.message);
   
 
  final  String message;
 
-/// Create a copy of PlataformChannelsState
+/// Create a copy of PlatformChannelsState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
@@ -473,14 +473,14 @@ int get hashCode => Object.hash(runtimeType,message);
 
 @override
 String toString() {
-  return 'PlataformChannelsState.error(message: $message)';
+  return 'PlatformChannelsState.error(message: $message)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$ErrorCopyWith<$Res> implements $PlataformChannelsStateCopyWith<$Res> {
+abstract mixin class _$ErrorCopyWith<$Res> implements $PlatformChannelsStateCopyWith<$Res> {
   factory _$ErrorCopyWith(_Error value, $Res Function(_Error) _then) = __$ErrorCopyWithImpl;
 @useResult
 $Res call({
@@ -499,7 +499,7 @@ class __$ErrorCopyWithImpl<$Res>
   final _Error _self;
   final $Res Function(_Error) _then;
 
-/// Create a copy of PlataformChannelsState
+/// Create a copy of PlatformChannelsState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
   return _then(_Error(
@@ -514,13 +514,13 @@ as String,
 /// @nodoc
 
 
-class _Success implements PlataformChannelsState {
+class _Success implements PlatformChannelsState {
   const _Success(this.osversion);
   
 
  final  String osversion;
 
-/// Create a copy of PlataformChannelsState
+/// Create a copy of PlatformChannelsState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
@@ -539,14 +539,14 @@ int get hashCode => Object.hash(runtimeType,osversion);
 
 @override
 String toString() {
-  return 'PlataformChannelsState.success(osversion: $osversion)';
+  return 'PlatformChannelsState.success(osversion: $osversion)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$SuccessCopyWith<$Res> implements $PlataformChannelsStateCopyWith<$Res> {
+abstract mixin class _$SuccessCopyWith<$Res> implements $PlatformChannelsStateCopyWith<$Res> {
   factory _$SuccessCopyWith(_Success value, $Res Function(_Success) _then) = __$SuccessCopyWithImpl;
 @useResult
 $Res call({
@@ -565,7 +565,7 @@ class __$SuccessCopyWithImpl<$Res>
   final _Success _self;
   final $Res Function(_Success) _then;
 
-/// Create a copy of PlataformChannelsState
+/// Create a copy of PlatformChannelsState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? osversion = null,}) {
   return _then(_Success(

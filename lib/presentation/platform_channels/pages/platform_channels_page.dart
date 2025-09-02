@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../utils/widgets/default_appbar.dart';
-import '../bloc/plataform_channels_bloc.dart';
+import '../../platform_channels/bloc/platform_channels_bloc.dart';
 
-class PlataformChannelsPage extends StatelessWidget {
-  const PlataformChannelsPage({super.key});
+class PlatformChannelsPage extends StatelessWidget {
+  const PlatformChannelsPage({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: const DefaultAppbar(titleText: 'Plataform Channels Page'),
+    appBar: const DefaultAppbar(titleText: 'Platform Channels Page'),
     body: Center(
-      child: BlocBuilder<PlataformChannelsBloc, PlataformChannelsState>(
-        builder: (BuildContext context, PlataformChannelsState state) =>
+      child: BlocBuilder<PlatformChannelsBloc, PlatformChannelsState>(
+        builder: (BuildContext context, PlatformChannelsState state) =>
             state.when(
               error: Text.new,
               initial: () => const Text('Inicializando...'),

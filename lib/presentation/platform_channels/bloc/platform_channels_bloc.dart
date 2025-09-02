@@ -5,31 +5,31 @@ import '../../../domain/model/device_info/device_info.dart';
 import '../../../domain/repository/device_info/device_info_repository.dart';
 import '../../../utils/result.dart';
 
-part 'plataform_channels_bloc.freezed.dart';
-part 'plataform_channels_event.dart';
-part 'plataform_channels_state.dart';
+part 'platform_channels_bloc.freezed.dart';
+part 'platform_channels_event.dart';
+part 'platform_channels_state.dart';
 
-class PlataformChannelsBloc
-    extends Bloc<PlataformChannelsEvent, PlataformChannelsState> {
-  PlataformChannelsBloc({required DeviceInfoRepository deviceInfoRepository})
+class PlatformChannelsBloc
+    extends Bloc<PlatformChannelsEvent, PlatformChannelsState> {
+  PlatformChannelsBloc({required DeviceInfoRepository deviceInfoRepository})
     : _deviceInfoRepository = deviceInfoRepository,
       super(const _Initial()) {
-    on<PlataformChannelsEvent>((
-      PlataformChannelsEvent event,
-      Emitter<PlataformChannelsState> emit,
+    on<PlatformChannelsEvent>((
+      PlatformChannelsEvent event,
+      Emitter<PlatformChannelsState> emit,
     ) async {
       await event.map(
-        getPlataformVersion: (_) async {
-          emit(const PlataformChannelsState.loading());
+        getPlatformVersion: (_) async {
+          emit(const PlatformChannelsState.loading());
           final Result<DeviceInfo> res = await _deviceInfoRepository
               .getPlatformVersion();
 
           switch (res) {
             case Ok<DeviceInfo>():
-              emit(PlataformChannelsState.success(res.value.osversion));
+              emit(PlatformChannelsState.success(res.value.osversion));
             case Error<DeviceInfo>():
               emit(
-                const PlataformChannelsState.error(
+                const PlatformChannelsState.error(
                   'Não foi possível obter a Versão desse dispositivo',
                 ),
               );

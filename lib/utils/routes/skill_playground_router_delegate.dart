@@ -13,8 +13,8 @@ import '../../presentation/home/pages/home_page.dart';
 import '../../presentation/isolate/bloc/isolate_bloc.dart';
 import '../../presentation/isolate/page/isolate_page.dart';
 import '../../presentation/navigator/page/navigator_route_page.dart';
-import '../../presentation/plataform_channels/bloc/plataform_channels_bloc.dart';
-import '../../presentation/plataform_channels/pages/plataform_channels_page.dart';
+import '../../presentation/platform_channels/bloc/platform_channels_bloc.dart';
+import '../../presentation/platform_channels/pages/platform_channels_page.dart';
 import '../../presentation/repaint_boundary/page/repaint_boundary_page.dart';
 import '../../presentation/slivers/slivers_page.dart';
 import '../../presentation/stream_builder/page/stream_builder_page.dart';
@@ -53,13 +53,13 @@ class SkillPlaygroundRouterDelegate
             child: const CounterPage(),
           ),
         ),
-        '/plataform_channels' => MaterialPage<dynamic>(
-          key: const ValueKey<String>('PlataformChannelsPage'),
-          child: BlocProvider<PlataformChannelsBloc>(
-            create: (BuildContext context) => PlataformChannelsBloc(
+        '/platform_channels' => MaterialPage<dynamic>(
+          key: const ValueKey<String>('PlatformChannelsPage'),
+          child: BlocProvider<PlatformChannelsBloc>(
+            create: (BuildContext context) => PlatformChannelsBloc(
               deviceInfoRepository: getIt<DeviceInfoRepository>(),
-            )..add(const PlataformChannelsEvent.getPlataformVersion()),
-            child: const PlataformChannelsPage(),
+            )..add(const PlatformChannelsEvent.getPlatformVersion()),
+            child: const PlatformChannelsPage(),
           ),
         ),
         '/repaint_boundary' => MaterialPage<dynamic>(
@@ -152,9 +152,9 @@ class SkillPlaygroundRouterDelegate
     notifyListeners();
   }
 
-  void goToPlataformChannelsPage() {
+  void goToPlatformChannelsPage() {
     _currentConfig = const SkillPlaygroundRouterConfig(
-      selectedRoute: '/plataform_channels',
+      selectedRoute: '/platform_channels',
     );
     notifyListeners();
   }
