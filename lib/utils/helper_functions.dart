@@ -8,47 +8,47 @@ dynamic mapOnTapByPlaceTitle(BuildContext context, Place place) {
     case 'CustomPainter Basics':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-            .goToCustomPainterPage();
+            .goToCustomPainterScreen();
       };
     case 'Navigator 2.0/ RouterDelegate':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-            .goToNavigatorRoutePage();
+            .goToNavigatorRouteScreen();
       };
     case 'Bloc State Management':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-            .goToBlocStateManagementPage();
+            .goToBlocStateManagementScreen();
       };
     case 'Performance & Repaints':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-            .goToRepaintBoundaryPage();
+            .goToRepaintBoundaryScreen();
       };
     case 'Async Isolates':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-            .goToIsolatePage();
+            .goToIsolateScreen();
       };
     case 'Animation Controller Lifecycle':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-            .goToAnimationControllerPage(place.imageUrl);
+            .goToAnimationControllerScreen(place.imageUrl);
       };
     case 'StreamBuilder Error Handling':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-            .goToStreamBuilderPage();
+            .goToStreamBuilderScreen();
       };
     case 'Custom Slivers':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-            .goToSliversPage();
+            .goToSliversScreen();
       };
     case 'Platform Channels':
       return () {
         (Router.of(context).routerDelegate as SkillPlaygroundRouterDelegate)
-            .goToPlatformChannelsPage();
+            .goToPlatformChannelsScreen();
       };
     default:
       return () {};

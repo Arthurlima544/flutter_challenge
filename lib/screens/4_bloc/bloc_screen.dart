@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../utils/widgets/default_appbar.dart';
-import '../bloc/counter_bloc.dart';
+import '../../blocs/counter/counter_bloc.dart';
 
-class CounterPage extends StatelessWidget {
-  const CounterPage({super.key});
+class BlocScreen extends StatelessWidget {
+  const BlocScreen({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: const DefaultAppbar(titleText: 'Bloc State Managment Page'),
+    appBar: const DefaultAppbar(titleText: 'Bloc State Management Page'),
     floatingActionButton: Row(
       mainAxisAlignment: MainAxisAlignment.end,
 

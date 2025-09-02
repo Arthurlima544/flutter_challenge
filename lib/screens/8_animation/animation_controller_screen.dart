@@ -45,16 +45,16 @@ class PhotoCard extends StatelessWidget {
   );
 }
 
-class AnimationControllerPage extends StatefulWidget {
-  const AnimationControllerPage({required this.imageUrl, super.key});
+class AnimationControllerScreen extends StatefulWidget {
+  const AnimationControllerScreen({required this.imageUrl, super.key});
   final String imageUrl;
 
   @override
-  State<AnimationControllerPage> createState() =>
-      _AnimationControllerPageState();
+  State<AnimationControllerScreen> createState() =>
+      _AnimationControllerScreenState();
 }
 
-class _AnimationControllerPageState extends State<AnimationControllerPage>
+class _AnimationControllerScreenState extends State<AnimationControllerScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;

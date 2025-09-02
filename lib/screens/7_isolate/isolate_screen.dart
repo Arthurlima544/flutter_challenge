@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../utils/widgets/default_appbar.dart';
-import '../../custom_painter/widget/custom_painting_logo.dart';
-import '../bloc/isolate_bloc.dart';
+import '../../blocs/isolate/isolate_bloc.dart';
+import '../2_custom_painter/widget/custom_painting_logo.dart';
 
-class IsolatePage extends StatefulWidget {
-  const IsolatePage({super.key});
+class IsolateScreen extends StatefulWidget {
+  const IsolateScreen({super.key});
 
   @override
-  State<IsolatePage> createState() => _IsolatePageState();
+  State<IsolateScreen> createState() => _IsolateScreenState();
 }
 
-class _IsolatePageState extends State<IsolatePage> {
+class _IsolateScreenState extends State<IsolateScreen> {
   final TextEditingController _controller = TextEditingController(
     text: '999999937',
   );

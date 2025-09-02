@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../utils/routes/skill_playground_router_delegate.dart';
 
-class SliversPage extends StatelessWidget {
-  const SliversPage({super.key});
+class SliversScreen extends StatelessWidget {
+  const SliversScreen({super.key});
 
   @override
   Widget build(BuildContext context) => Material(

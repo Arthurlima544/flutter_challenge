@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/routes/skill_playground_router_delegate.dart';
-import '../widget/custom_painting_logo.dart';
+import 'widget/custom_painting_logo.dart';
 
-class CustomPainterPage extends StatelessWidget {
-  const CustomPainterPage({required this.title, super.key});
+class CustomPainterScreen extends StatelessWidget {
+  const CustomPainterScreen({required this.title, super.key});
   final String title;
 
   @override
@@ -24,7 +24,7 @@ class CustomPainterPage extends StatelessWidget {
 
           alignment: Alignment.centerLeft,
           child: const Text(
-            'Custom Painter é um widget que permite desenhar diretamente na tela usando a API de desenho do Flutter. Com ela podemos criar designs incriveis como por exemplo a logo da For People de uma forma inusitada.',
+            'Custom Painter é um widget que permite desenhar diretamente na tela usando a API de desenho do Flutter. Com ela podemos criar designs incríveis como por exemplo a logo da For People de uma forma inusitada.',
             style: TextStyle(fontSize: 12),
           ),
         ),

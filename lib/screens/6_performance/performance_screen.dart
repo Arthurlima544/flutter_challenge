@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../utils/widgets/default_appbar.dart';
-import '../../counter/bloc/counter_bloc.dart';
-import '../widgets/large_list.dart';
+import '../../blocs/counter/counter_bloc.dart';
+import 'widgets/large_list.dart';
 
-class RepaintBoundaryPage extends StatefulWidget {
-  const RepaintBoundaryPage({super.key});
+class PerformanceScreen extends StatefulWidget {
+  const PerformanceScreen({super.key});
 
   @override
-  State<RepaintBoundaryPage> createState() => _RepaintBoundaryPageState();
+  State<PerformanceScreen> createState() => _PerformanceScreenState();
 }
 
-class _RepaintBoundaryPageState extends State<RepaintBoundaryPage> {
+class _PerformanceScreenState extends State<PerformanceScreen> {
   @override
   Widget build(BuildContext context) => BlocBuilder<CounterBloc, CounterState>(
     builder: (BuildContext context, CounterState state) => state.when(
       counter: (int counter) => Scaffold(
-        appBar: const DefaultAppbar(titleText: 'Repaint Boundary Page'),
+        appBar: const DefaultAppbar(titleText: 'Performance Page'),
 
         body: Column(
           children: <Widget>[

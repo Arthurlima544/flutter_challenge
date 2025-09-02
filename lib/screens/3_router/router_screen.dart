@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/widgets/default_appbar.dart';
-import '../widgets/section_title.dart';
-import '../widgets/step_widget.dart';
+import 'widgets/section_title.dart';
+import 'widgets/step_widget.dart';
 
-class NavigatorRoutePage extends StatelessWidget {
-  const NavigatorRoutePage({super.key});
+class RouterScreen extends StatelessWidget {
+  const RouterScreen({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: const DefaultAppbar(titleText: 'Navigator Route Page'),
+    appBar: const DefaultAppbar(titleText: 'Router Page'),
     body: ListView(
       padding: const EdgeInsets.all(16.0),
       children: const <Widget>[

@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/widgets/default_appbar.dart';
 
-class StreamBuilderPage extends StatefulWidget {
-  const StreamBuilderPage({super.key});
+class StreamBuilderScreen extends StatefulWidget {
+  const StreamBuilderScreen({super.key});
 
   @override
-  State<StreamBuilderPage> createState() => _StreamBuilderPageState();
+  State<StreamBuilderScreen> createState() => _StreamBuilderScreenState();
 }
 
-class _StreamBuilderPageState extends State<StreamBuilderPage> {
+class _StreamBuilderScreenState extends State<StreamBuilderScreen> {
   late final StreamController<int> _controller;
   late final Timer _timer;
 

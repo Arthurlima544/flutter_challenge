@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../blocs/counter/counter_bloc.dart';
+import '../../blocs/home/home_bloc.dart';
+import '../../blocs/isolate/isolate_bloc.dart';
+import '../../blocs/platform_channels/platform_channels_bloc.dart';
 import '../../domain/repository/device_info/device_info_repository.dart';
 import '../../domain/repository/place/place_repository.dart';
 import '../../locator.dart';
-import '../../presentation/animation_controller/page/animation_controller_page.dart';
-import '../../presentation/counter/bloc/counter_bloc.dart';
-import '../../presentation/counter/page/counter_page.dart';
-import '../../presentation/custom_painter/page/custom_painter_page.dart';
-import '../../presentation/home/bloc/home_bloc.dart';
-import '../../presentation/home/pages/home_page.dart';
-import '../../presentation/isolate/bloc/isolate_bloc.dart';
-import '../../presentation/isolate/page/isolate_page.dart';
-import '../../presentation/navigator/page/navigator_route_page.dart';
-import '../../presentation/platform_channels/bloc/platform_channels_bloc.dart';
-import '../../presentation/platform_channels/pages/platform_channels_page.dart';
-import '../../presentation/repaint_boundary/page/repaint_boundary_page.dart';
-import '../../presentation/slivers/slivers_page.dart';
-import '../../presentation/stream_builder/page/stream_builder_page.dart';
+import '../../screens/10_slivers/slivers_screen.dart';
+import '../../screens/1_home/home_screen.dart';
+import '../../screens/2_custom_painter/custom_painter_screen.dart';
+import '../../screens/3_router/router_screen.dart';
+import '../../screens/4_bloc/bloc_screen.dart';
+import '../../screens/5_platform_channels/platform_channels_screen.dart';
+import '../../screens/6_performance/performance_screen.dart';
+import '../../screens/7_isolate/isolate_screen.dart';
+import '../../screens/8_animation/animation_controller_screen.dart';
+import '../../screens/9_stream_builder/stream_builder_screen.dart';
 import 'skill_playground_router_config.dart';
 
 class SkillPlaygroundRouterDelegate
@@ -43,72 +43,72 @@ class SkillPlaygroundRouterDelegate
     pages: <Page<dynamic>>[
       switch (_currentConfig?.selectedRoute) {
         '/custom_painter' => MaterialPage<dynamic>(
-          key: const ValueKey<String>('CustomPainterPage'),
-          child: CustomPainterPage(title: _currentConfig?.selectedItem ?? ''),
+          key: const ValueKey<String>('CustomPainterScreen'),
+          child: CustomPainterScreen(title: _currentConfig?.selectedItem ?? ''),
         ),
         '/bloc' => MaterialPage<dynamic>(
-          key: const ValueKey<String>('BlocStateManagementPage'),
+          key: const ValueKey<String>('BlocStateManagementScreen'),
           child: BlocProvider<CounterBloc>(
             create: (BuildContext context) => CounterBloc(),
-            child: const CounterPage(),
+            child: const BlocScreen(),
           ),
         ),
         '/platform_channels' => MaterialPage<dynamic>(
-          key: const ValueKey<String>('PlatformChannelsPage'),
+          key: const ValueKey<String>('PlatformChannelsScreen'),
           child: BlocProvider<PlatformChannelsBloc>(
             create: (BuildContext context) => PlatformChannelsBloc(
               deviceInfoRepository: getIt<DeviceInfoRepository>(),
             )..add(const PlatformChannelsEvent.getPlatformVersion()),
-            child: const PlatformChannelsPage(),
+            child: const PlatformChannelsScreen(),
           ),
         ),
         '/repaint_boundary' => MaterialPage<dynamic>(
-          key: const ValueKey<String>('RepaintBoundaryPage'),
+          key: const ValueKey<String>('RepaintBoundaryScreen'),
           child: BlocProvider<CounterBloc>(
             create: (BuildContext context) => CounterBloc(),
-            child: const RepaintBoundaryPage(),
+            child: const PerformanceScreen(),
           ),
         ),
 
         '/isolate_page' => MaterialPage<dynamic>(
-          key: const ValueKey<String>('IsolatePage'),
+          key: const ValueKey<String>('IsolateScreen'),
           child: BlocProvider<IsolateBloc>(
             create: (BuildContext context) => IsolateBloc(),
-            child: const IsolatePage(),
+            child: const IsolateScreen(),
           ),
         ),
 
         '/animation_controller' => MaterialPage<dynamic>(
-          key: const ValueKey<String>('AnimationControllerPage'),
-          child: AnimationControllerPage(
+          key: const ValueKey<String>('AnimationControllerScreen'),
+          child: AnimationControllerScreen(
             imageUrl: _currentConfig!.arguments[0]! as String,
           ),
         ),
 
         '/stream_builder_page' => const MaterialPage<dynamic>(
-          key: ValueKey<String>('StreamBuilderPage'),
-          child: StreamBuilderPage(),
+          key: ValueKey<String>('StreamBuilderScreen'),
+          child: StreamBuilderScreen(),
         ),
 
         '/slivers_page' => const MaterialPage<dynamic>(
-          key: ValueKey<String>('SliversPage'),
-          child: SliversPage(),
+          key: ValueKey<String>('SliversScreen'),
+          child: SliversScreen(),
         ),
 
         '/navigator_route_page' => const MaterialPage<dynamic>(
-          key: ValueKey<String>('NavigatorRoutePage'),
-          child: NavigatorRoutePage(),
+          key: ValueKey<String>('NavigatorRouteScreen'),
+          child: RouterScreen(),
         ),
 
         _ => MaterialPage<dynamic>(
-          key: const ValueKey<String>('HomePage'),
+          key: const ValueKey<String>('HomeScreen'),
           child: Scaffold(
             body: Center(
               child: BlocProvider<HomeBloc>(
                 create: (BuildContext context) =>
                     HomeBloc(placeRepository: getIt<PlaceRepository>())
                       ..add(const HomeEvent.load()),
-                child: const Home(),
+                child: const HomeScreen(),
               ),
             ),
           ),
@@ -135,7 +135,7 @@ class SkillPlaygroundRouterDelegate
   Future<void> setInitialRoutePath(SkillPlaygroundRouterConfig configuration) =>
       setNewRoutePath(configuration);
 
-  void goToBlocStateManagementPage() {
+  void goToBlocStateManagementScreen() {
     _currentConfig = const SkillPlaygroundRouterConfig(selectedRoute: '/bloc');
     notifyListeners();
   }
@@ -145,35 +145,35 @@ class SkillPlaygroundRouterDelegate
     notifyListeners();
   }
 
-  void goToCustomPainterPage() {
+  void goToCustomPainterScreen() {
     _currentConfig = const SkillPlaygroundRouterConfig(
       selectedRoute: '/custom_painter',
     );
     notifyListeners();
   }
 
-  void goToPlatformChannelsPage() {
+  void goToPlatformChannelsScreen() {
     _currentConfig = const SkillPlaygroundRouterConfig(
       selectedRoute: '/platform_channels',
     );
     notifyListeners();
   }
 
-  void goToRepaintBoundaryPage() {
+  void goToRepaintBoundaryScreen() {
     _currentConfig = const SkillPlaygroundRouterConfig(
       selectedRoute: '/repaint_boundary',
     );
     notifyListeners();
   }
 
-  void goToIsolatePage() {
+  void goToIsolateScreen() {
     _currentConfig = const SkillPlaygroundRouterConfig(
       selectedRoute: '/isolate_page',
     );
     notifyListeners();
   }
 
-  void goToAnimationControllerPage(String imageUrl) {
+  void goToAnimationControllerScreen(String imageUrl) {
     _currentConfig = SkillPlaygroundRouterConfig(
       selectedRoute: '/animation_controller',
       arguments: <Object?>[imageUrl],
@@ -181,21 +181,21 @@ class SkillPlaygroundRouterDelegate
     notifyListeners();
   }
 
-  void goToStreamBuilderPage() {
+  void goToStreamBuilderScreen() {
     _currentConfig = const SkillPlaygroundRouterConfig(
       selectedRoute: '/stream_builder_page',
     );
     notifyListeners();
   }
 
-  void goToSliversPage() {
+  void goToSliversScreen() {
     _currentConfig = const SkillPlaygroundRouterConfig(
       selectedRoute: '/slivers_page',
     );
     notifyListeners();
   }
 
-  void goToNavigatorRoutePage() {
+  void goToNavigatorRouteScreen() {
     _currentConfig = const SkillPlaygroundRouterConfig(
       selectedRoute: '/navigator_route_page',
     );
