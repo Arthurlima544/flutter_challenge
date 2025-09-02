@@ -22,7 +22,7 @@ class PlataformChannelsBloc
         getPlataformVersion: (_) async {
           emit(const PlataformChannelsState.loading());
           final Result<DeviceInfo> res = await _deviceInfoRepository
-              .getPlataformVersion();
+              .getPlatformVersion();
 
           switch (res) {
             case Ok<DeviceInfo>():

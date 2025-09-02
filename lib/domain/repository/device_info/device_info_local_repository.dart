@@ -1,19 +1,18 @@
-import '../../../data/datasources/device_info/device_info_local_datasource.dart';
+import '../../../data/datasources/platform_data_source.dart';
 import '../../../data/model/version/device_info_local_model.dart';
 import '../../../utils/result.dart';
 import '../../model/device_info/device_info.dart';
 import 'device_info_repository.dart';
 
 class DeviceInfoLocalRepository implements DeviceInfoRepository {
-  DeviceInfoLocalRepository({
-    required DeviceInfoLocalDatasource localDatasource,
-  }) : _localDatasource = localDatasource;
-  final DeviceInfoLocalDatasource _localDatasource;
+  DeviceInfoLocalRepository({required PlatformDataSource localDatasource})
+    : _localDatasource = localDatasource;
+  final PlatformDataSource _localDatasource;
   @override
-  Future<Result<DeviceInfo>> getPlataformVersion() async {
+  Future<Result<DeviceInfo>> getPlatformVersion() async {
     try {
       final Result<DeviceInfoLocalModel> res = await _localDatasource
-          .getPlataformVersion();
+          .getPlatformVersion();
 
       switch (res) {
         case Ok<DeviceInfoLocalModel>():

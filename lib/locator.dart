@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 
-import 'data/datasources/assets_local_datasource.dart';
-import 'data/datasources/device_info/device_info_local_datasource.dart';
+import 'data/datasources/places_local_data_source.dart';
+import 'data/datasources/platform_data_source.dart';
 import 'domain/repository/device_info/device_info_local_repository.dart';
 import 'domain/repository/device_info/device_info_repository.dart';
 import 'domain/repository/place/place_repository.dart';
@@ -11,19 +11,17 @@ final GetIt getIt = GetIt.instance;
 
 void setupLocator() {
   getIt
-    ..registerLazySingleton<AssetsLocalDatasource>(AssetsLocalDatasource.new)
-    ..registerLazySingleton<DeviceInfoLocalDatasource>(
-      DeviceInfoLocalDatasource.new,
-    )
+    ..registerLazySingleton<PlacesLocalDataSource>(PlacesLocalDataSource.new)
+    ..registerLazySingleton<PlatformDataSource>(PlatformDataSource.new)
     ..registerLazySingleton<PlaceRepository>(
       () =>
-          PlaceRepositoryLocal(localDatasource: getIt<AssetsLocalDatasource>())
+          PlaceRepositoryLocal(localDatasource: getIt<PlacesLocalDataSource>())
               as PlaceRepository,
     )
     ..registerLazySingleton<DeviceInfoRepository>(
       () =>
           DeviceInfoLocalRepository(
-                localDatasource: getIt<DeviceInfoLocalDatasource>(),
+                localDatasource: getIt<PlatformDataSource>(),
               )
               as DeviceInfoRepository,
     );

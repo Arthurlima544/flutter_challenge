@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import '../../utils/result.dart';
 import '../model/place/place_local_model.dart';
 
-class AssetsLocalDatasource {
+class PlacesLocalDataSource {
   Future<Result<List<PlaceLocalModel>>> getLocalPlaces() async {
     final String jsonString = await rootBundle.loadString('assets/places.json');
     final List<dynamic> jsonList = jsonDecode(jsonString);
