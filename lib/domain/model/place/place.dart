@@ -4,7 +4,7 @@ part 'place.freezed.dart';
 part 'place.g.dart';
 
 @freezed
-abstract class Place with _$Place {
+sealed class Place with _$Place {
   const factory Place({
     required String type,
     required String imageUrl,

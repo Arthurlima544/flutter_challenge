@@ -119,10 +119,7 @@ return isPrime(_that);case _:
 final _that = this;
 switch (_that) {
 case _IsPrime():
-return isPrime(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return isPrime(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -181,10 +178,7 @@ return isPrime(_that.isWithCompute,_that.number);case _:
 @optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( bool isWithCompute,  int number)  isPrime,}) {final _that = this;
 switch (_that) {
 case _IsPrime():
-return isPrime(_that.isWithCompute,_that.number);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return isPrime(_that.isWithCompute,_that.number);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -363,10 +357,7 @@ switch (_that) {
 case _Initial():
 return initial(_that);case _Loading():
 return loading(_that);case _Success():
-return success(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return success(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -431,10 +422,7 @@ switch (_that) {
 case _Initial():
 return initial();case _Loading():
 return loading();case _Success():
-return success(_that.isPrime);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return success(_that.isPrime);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

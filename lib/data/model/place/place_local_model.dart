@@ -4,7 +4,7 @@ part 'place_local_model.freezed.dart';
 part 'place_local_model.g.dart';
 
 @freezed
-abstract class PlaceLocalModel with _$PlaceLocalModel {
+sealed class PlaceLocalModel with _$PlaceLocalModel {
   const factory PlaceLocalModel({
     required String ref,
     required String name,

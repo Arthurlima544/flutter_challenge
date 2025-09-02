@@ -87,10 +87,7 @@ return load(_that);case _:
 final _that = this;
 switch (_that) {
 case _Load():
-return load(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return load(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -149,10 +146,7 @@ return load();case _:
 @optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  load,}) {final _that = this;
 switch (_that) {
 case _Load():
-return load();case _:
-  throw StateError('Unexpected subclass');
-
-}
+return load();}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -297,10 +291,7 @@ case _Initial():
 return initial(_that);case _Loading():
 return loading(_that);case _Success():
 return success(_that);case _Error():
-return error(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return error(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -368,10 +359,7 @@ case _Initial():
 return initial();case _Loading():
 return loading();case _Success():
 return success(_that.places);case _Error():
-return error(_that.message);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return error(_that.message);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///

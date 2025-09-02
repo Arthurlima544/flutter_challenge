@@ -4,7 +4,7 @@ part 'device_info_local_model.freezed.dart';
 part 'device_info_local_model.g.dart';
 
 @freezed
-abstract class DeviceInfoLocalModel with _$DeviceInfoLocalModel {
+sealed class DeviceInfoLocalModel with _$DeviceInfoLocalModel {
   const factory DeviceInfoLocalModel({required String version}) =
       _DeviceInfoLocalModel;
 

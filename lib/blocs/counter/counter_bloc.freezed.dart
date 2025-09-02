@@ -83,10 +83,7 @@ final _that = this;
 switch (_that) {
 case _IncrementValue():
 return incrementValue(_that);case _DecrementValue():
-return decrementValue(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return decrementValue(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -148,10 +145,7 @@ return decrementValue();case _:
 switch (_that) {
 case _IncrementValue():
 return incrementValue();case _DecrementValue():
-return decrementValue();case _:
-  throw StateError('Unexpected subclass');
-
-}
+return decrementValue();}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -342,10 +336,7 @@ return counter(_that);case _:
 final _that = this;
 switch (_that) {
 case _Counter():
-return counter(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return counter(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -404,10 +395,7 @@ return counter(_that.number);case _:
 @optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( int number)  counter,}) {final _that = this;
 switch (_that) {
 case _Counter():
-return counter(_that.number);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return counter(_that.number);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
