@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/routes/skill_playground_router_delegate.dart';
+import '../../../utils/routes/skill_playground_router_delegate.dart';
 
 class SliversScreen extends StatelessWidget {
   const SliversScreen({super.key});

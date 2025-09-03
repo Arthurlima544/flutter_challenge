@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/routes/skill_playground_router_delegate.dart';
+import '../../../../utils/routes/skill_playground_router_delegate.dart';
 import 'widget/custom_painting_logo.dart';
 
 class CustomPainterScreen extends StatelessWidget {

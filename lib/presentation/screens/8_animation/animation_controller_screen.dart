@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/widgets/default_appbar.dart';
+import '../../../../utils/widgets/default_appbar.dart';
 
 enum AnimationSimpleState { notStated, paused, moving, completed }
 

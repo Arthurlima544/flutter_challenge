@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/widgets/default_appbar.dart';
+import '../../../../utils/widgets/default_appbar.dart';
 import 'widgets/section_title.dart';
 import 'widgets/step_widget.dart';
 

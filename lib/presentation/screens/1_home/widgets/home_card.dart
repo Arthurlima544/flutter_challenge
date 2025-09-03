@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../domain/model/place/place.dart';
-import '../../../utils/helper_functions.dart';
+import '../../../../domain/entity/place_entity.dart';
+import '../../../../utils/helper_functions.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({required this.place, super.key});
-  final Place place;
+  final PlaceEntity place;
 
   @override
   Widget build(BuildContext context) => GestureDetector(

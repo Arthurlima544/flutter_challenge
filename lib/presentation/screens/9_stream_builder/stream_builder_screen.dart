@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../../utils/widgets/default_appbar.dart';
+import '../../../../utils/widgets/default_appbar.dart';
 
 class StreamBuilderScreen extends StatefulWidget {
   const StreamBuilderScreen({super.key});

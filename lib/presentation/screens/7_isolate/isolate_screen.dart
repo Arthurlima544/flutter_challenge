@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../utils/widgets/default_appbar.dart';
+import '../../../../utils/widgets/default_appbar.dart';
 import '../../blocs/isolate/isolate_bloc.dart';
 import '../2_custom_painter/widget/custom_painting_logo.dart';
 

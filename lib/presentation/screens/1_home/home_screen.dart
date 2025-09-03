@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../domain/model/place/place.dart';
 import '../../blocs/home/home_bloc.dart';
+import '../../../domain/entity/place_entity.dart';
 import 'widgets/home_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       builder: (BuildContext context, HomeState state) => state.when(
         initial: () => const Center(child: Text('Inicializando..')),
         loading: () => const Center(child: CircularProgressIndicator()),
-        success: (List<Place> places) => GridView.builder(
+        success: (List<PlaceEntity> places) => GridView.builder(
           padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
           itemCount: places.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
