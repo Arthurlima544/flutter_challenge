@@ -10,6 +10,7 @@
   - [Quebrando a arquitetura: o uso de ChangeNotifier nas rotas](#quebrando-a-arquitetura-o-uso-de-changenotifier-nas-rotas)
   - [Analyzer e Lint](#analyzer-e-lint)
   - [Arquitetura Limpa (Clean Architecture)](#arquitetura-limpa-clean-architecture)
+- [Arquitetura do Projeto](#arquitetura-do-projeto)
 - [Pacotes usados](#pacotes-usados)
   - [Dependências](#dependências)
   - [Dependências de desenvolvimento](#dependências-de-desenvolvimento)
@@ -153,11 +154,21 @@ Isso facilita a manutenção e padronização do código, além de ajudar a evit
 
 Todas as configurações foram baseadas em boas práticas recomendadas pela comunidade Flutter e BLoC.
 
-### Arquitetura Limpa (Clean Architecture)
 
-O projeto é estruturado seguindo os princípios do SOLID da Arquitetura Limpa. A estrutura do projeto é dividida em camadas distintas:
+## Arquitetura do Projeto
 
-#### Organização das Pastas
+A ideia principal dessa arquitetura é trazer elementos de arquiteturas consagradas como [Clean Architecture](https://en.wikipedia.org/wiki/Clean_Architecture), incrementados com a própria recomendação do time do Flutter/Dart de [Arquitetura Proposta](https://docs.flutter.dev/app-architecture/guide), em um projeto simples em seu começo porém com a facilidade de se tornar escalável.
+
+<!-- IMAGE HERE -->
+
+A ideia como na figura acima é dividir a aplicação em 3 camadas, onde camada internas da aplicação não dependem de camadas externas [DIP](https://en.wikipedia.org/wiki/Dependency_inversion_principle), e a comunicação entre as camadas seja feita por meio de abstrações (pelo menos nas partes mais críticas como o repository).
+
+<!-- IMAGE HERE -->
+
+Essa Figura acima ilustra como as camadas se comunicam entre si, e como o [fluxo unidirecional de dados](https://en.wikipedia.org/wiki/Unidirectional_data_flow) acontece, promovendo previsibilidade do software.
+
+### Organização de pastas
+
 
 | Pasta | Descrição |
 |-------|-----------|
@@ -165,21 +176,21 @@ O projeto é estruturado seguindo os princípios do SOLID da Arquitetura Limpa. 
 ┣ 📂 android — Arquivos de configuração específicos para Android  
 ┣ 📂 ios — Arquivos de configuração específicos para iOS  
 ┣ 📂 lib — **Código fonte principal da aplicação**  
-┃ ┣ 📂 **data** — Camada de Dados: Comunicação com fontes externas  
-┃ ┃ ┣ 📂 datasources — Comunicação com fontes de dados  
-┃ ┃ ┗ 📂 model — DTOs (Data Transfer Objects)  
-┃ ┣ 📂 **domain** — Camada de Domínio: Regras de negócio da aplicação  
-┃ ┃ ┣ 📂 model — Entidades de domínio
-┃ ┃ ┗ 📂 repository — Interfaces e Implementações dos repositórios  
+┃ ┣ 📂 **data** — Camada de Dados: Comunicação com fontes externas e SST. 
+┃ ┃ ┣ 📂 services — Comunicação com fontes de dados  
+┃ ┃ ┣ 📂 exceptions — Exceções únicas da camada de dados
+┃ ┃ ┗ 📂 repository - Single Source of Truth.
+┃ ┣ 📂 **domain** — Camada de Domínio: Regras de negócio da aplicação e Interfaces 
+┃ ┃ ┣ 📂 entity — Entidades de domínio  
+┃ ┃ ┗ 📂 repository — Interfaces dos repositórios  
 ┃ ┣ 📂 **presentation** — UI e lógica de UI (BLoCs)  
-┃ ┃ ┗ 📂 features — 
-┃ ┃    *Cada feature contém:*  
-┃ ┃    ┣ 📂 bloc(opcional) — Gerenciamento de estado (BLoC pattern)  
-┃ ┃    ┣ 📂 pages — Páginas (telas) da feature  
-┃ ┃    ┗ 📂 widgets(opcional) — Componentes reutilizáveis da feature  
+┃ ┃ ┣ 📂 bloc — Gerenciamento de estado (BLoC pattern)  
+┃ ┃ ┗ 📂 pages — Páginas (telas) da feature  
+┃ ┃   ┗ 📂 widgets — Componentes reutilizáveis da feature  
 ┃ ┣ 📂 **utils** — Arquivos utilitários e widgets globais  
 ┃ ┃ ┣ 📂 routes — Configuração de rotas da aplicação.
 ┃ ┃ ┣ 📂 widgets — Widgets globais reutilizáveis.
+┃ ┃ ┣ 📄 app_exception.dart — Exceções gerais.
 ┃ ┃ ┣ 📄 helper_functions.dart — Funções auxiliares  
 ┃ ┃ ┗ 📄 result.dart — Classes para tratamento de sucesso/erro. 
 ┃ ┣ 📄 locator.dart — Configuração da injeção de dependência (GetIt)  
@@ -188,6 +199,276 @@ O projeto é estruturado seguindo os princípios do SOLID da Arquitetura Limpa. 
 ┣ 📂 linux — Arquivos de configuração específicos para Linux  
 ┣ 📂 windows — Arquivos de configuração específicos para Windows  
 ┗ 📂 web — Arquivos de configuração específicos para Web  
+
+### Domain
+
+#### Entity
+
+- **Visão geral**: Entidades representam objetos imutáveis responsáveis por transformar dados vindos de diferentes fontes (ex.: fromJson) e manter o domínio da aplicação de forma segura e previsível.
+
+---
+
+- **Responsabilidade**: Representar objetos imutáveis e transformar dados de diferentes fontes de dados (ex: fromJson).
+  - Representar objetos imutáveis do domínio.
+  - Transformar dados de diferentes fontes (por exemplo fromJson).
+  - Criar novas instâncias sem mutação direta (imutabilidade).
+
+---
+
+- **Vantagens**:
+  - Reduz problemas de [race condition](https://en.wikipedia.org/wiki/Race_condition), [data inconsistency](https://en.wikipedia.org/wiki/Data_consistency#Application_consistency) e [sincronização](https://en.wikipedia.org/wiki/Synchronization_(computer_science)).
+  - Facilita produzir código rapidamente.
+  - É muito comum requisitos de software mudarem, um novo campo ser adicionado ou removido. Manter a classe imutável e delegar a responsabilidade de criar novas instâncias para o `freezed` ajuda a evitar bugs e problemas de manutenção.
+  - Com a imutabilidade fica fácil de implementar do conceito de [Memoization](https://en.wikipedia.org/wiki/Memoization), otimizando chamadas repetidas.
+
+---
+
+- **freezed** e **sealed classes**:
+  - O uso de **sealed classes** (ex.: [sealed classes no Dart](https://dart.dev/language/class-modifiers#sealed)) com `freezed`:
+    - Ajuda a evitar erros de herança indesejados.
+    - Traz **exhaustiveness checking** em `switch`, reduzindo o comum esquecimento de algum caso a ser tratado. (ver: [exhaustiveness checking](https://dart.dev/language/branches#exhaustiveness-checking))
+
+---
+
+- **Union Types**
+  - Usar **Union Types** (tipos de união) permite declarar diferentes variantes de um mesmo conceito que compartilham interface, mas têm atributos diferentes.
+  - Isso é útil onde casos distintos precisam ser tratados de forma explícita usando uma factory diferente da padrão (Também é útil para os estados do BLoC).
+
+---
+
+- **Entidades do Projeto**:
+  - **DeviceInfoEntity**: Representa informações do dispositivo (versão do OS).
+  - **PlaceEntity**: Representa locais/lugares com tipo, imagem e título.
+
+---
+
+- **Possíveis problemas e observações**
+  - Em projetos maiores, usar pacotes geradores de código como `freezed` e `json_serializable` pode:
+    - Aumentar o tempo de *build* (por consequência diminuir a produtividade do desenvolvedor).
+    - Causar conflitos de versão entre dependências.
+    - Travar o desenvolvedor em um erro desconhecido (principalmente para aqueles sem tanta experiencia com esses packages).
+  - Esses problemas tendem a aparecer conforme o projeto escala; uma alternativa possível é usar **data classes**(Em desenvolvimento pelo time de dart - atualmente dia 03/09/2025) no Dart quando apropriado.
+
+---
+
+- **Links Úteis**:
+  - Issue ativa mais votada do Dart sobre Data Classes: https://github.com/dart-lang/language/issues/314  
+  - Cancelamento das Macros (Dart Team): https://medium.com/dartlang/an-update-on-dart-macros-data-serialization-06d3037d4f12
+  - [Immutable Object](https://en.wikipedia.org/wiki/Immutable_object) - Definição e vantagens da imutabilidade
+  - [Builder Pattern](https://en.wikipedia.org/wiki/Builder_pattern) - Padrão para construção de objetos complexos.
+
+#### Repository
+
+- **Visão geral**: Na camada de domínio repositórios definem contratos abstratos para acesso a dados.
+
+---
+
+- **Responsabilidade**:
+  - Definir [interfaces abstratas](https://en.wikipedia.org/wiki/Interface_(computing)) para operações de dados.
+  - Promover [inversão de dependência](https://en.wikipedia.org/wiki/Dependency_inversion_principle) entre camadas.
+
+---
+
+- **Vantagens**:
+  - Facilitar[mocks e stubs](https://en.wikipedia.org/wiki/Mock_object).
+  - Abstrai detalhes de implementação de fontes de dados.
+  - **Manutenibilidade**: Mudanças na fonte de dados não afetam o domínio.
+
+---
+
+- **Padrão Result**:
+  - Uso do `result_dart` para [tratamento de erros funcionais](https://en.wikipedia.org/wiki/Functional_programming#Pure_functions).
+  - Evita exceptions não tratadas.
+  - Força tratamento explícito de casos de erro.
+  - Melhora a previsibilidade do código através de [monads](https://en.wikipedia.org/wiki/Monad_(functional_programming))(flatmap).
+
+---
+
+### Data
+
+#### Service
+
+- **Visão geral**: Services responsáveis por encapsular lógica de acesso a dados, abstraindo detalhes técnicos.
+
+---
+
+- **Responsabilidade**: 
+  - Encapsular operações de baixo nível para acesso a dados.
+  - Transformar dados brutos em entidades de domínio.
+  - Capturar o Erro porém não tratar
+
+---
+
+- **Vantagens**:
+  - Services podem ser utilizados por múltiplos repositórios (N:N).
+  - Cada service tem uma função específica ([Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle)).
+  - Isolamento de lógica de acesso a dados.
+
+---
+
+- **Tratamento de Erros**:
+  - Uso de exceptions customizadas específicas para cada tipo de erro.
+  - Transformação de erros de baixo nível em erros de domínio.
+  - Logging para debugging.
+
+---
+
+- **Possíveis problemas e observações**:
+  - Services muito genéricos podem violar o [princípio da responsabilidade única](https://en.wikipedia.org/wiki/Single-responsibility_principle).
+  - Excesso de abstração pode tornar o código mais complexo que necessário.
+  - Importante balancear entre reutilização e simplicidade.
+
+#### Repository Implementation
+
+- **Visão geral**: Implementações concretas dos contratos definidos na camada de domínio, com o principal objetivo de ser um [Single Source Of Truth](https://en.wikipedia.org/wiki/Single_source_of_truth).
+
+---
+
+- **Responsabilidade**: Implementar os contratos de repositório definidos no domínio.
+  - Orquestrar múltiplos services quando necessário.
+  - Implementar lógicas de cache e otimização.
+  - Transformar dados de services em entidades de domínio.
+  - Tratar e mapear erros específicos.
+
+---
+
+- **Vantagens**:
+  - **Controle fino**: Implementação específica para cada necessidade.
+  - **Otimização**: Cache, [memoização](https://en.wikipedia.org/wiki/Memoization), strategies de retry.
+  - **Flexibilidade**: Diferentes implementações para diferentes contextos.
+  - **Evolução**: Facilita migração entre fontes de dados.
+
+---
+
+- **Estratégias de Cache**:
+  - Cache em memória para dados frequentemente acessados.
+  - Invalidação inteligente baseada em tempo ou eventos.
+  - Fallback para cache quando rede não está disponível ([Cache-aside pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/cache-aside)).
+
+---
+
+- **Possíveis problemas e observações**:
+  - Cache pode introduzir problemas de [consistência de dados](https://en.wikipedia.org/wiki/Data_consistency), que é resolvido pela camada de Entidades.
+  - Lógica complexa de orquestração pode indicar responsabilidades mal definidas. 
+
+### Presentation
+
+#### State Management (Blocs)
+
+- **Visão geral**: [BLoC](https://bloclibrary.dev/) (Business Logic Component) gerencia estados da interface de usuário de forma reativa, separando a lógica da interface.
+
+---
+
+- **Responsabilidade**: Gerenciar estados e lógica de apresentação.
+  - Receber eventos da interface de usuário.
+  - Executar lógica de negócio através de repositórios.
+  - Emitir novos estados baseados em resultados.
+  - Manter histórico de estados para debugging.
+
+---
+
+- **Vantagens**:
+  - Lógica isolada e testável independentemente da UI.
+
+---
+
+- **freezed para Events e States**:
+  - [Union types](https://medium.com/@aliammariraq/sealed-classes-in-dart-unlocking-powerful-features-d8dba185925f) para diferentes tipos de eventos e estados.
+  - Imutabilidade garantida.
+  - [Tratamento exaustivo](https://dart.dev/language/branches#exhaustiveness-checking).
+
+---
+
+- **Links Úteis**:
+  - [Reactive Programming](https://en.wikipedia.org/wiki/Reactive_programming) - Paradigma de programação reativa.
+
+---
+
+- **Possíveis problemas e observações**:
+  - BLoCs muito complexos podem indicar responsabilidades mal distribuídas.
+  - Estados com muitos campos podem ser difíceis de gerenciar.
+  - Importante balancear granularidade de eventos e estados.
+  - Caso um bloc fique muito grande vale a pena avaliar sua responsabilidade e dividir em menores.
+  - Caso um bloc comece a utilizar muitos repositórios, talvez seja o momento de criar uma camada de UseCases para abstrair essa lógica.
+
+#### Screens
+
+- **Visão geral**: Screens representam páginas completas da aplicação, sendo responsáveis por compor widgets e conectar com BLoCs para gerenciamento de estado.
+
+---
+
+- **Responsabilidade**: Compor interface de usuário e conectar com lógica de estado.
+  - Definir estrutura visual das páginas.
+  - Conectar com BLoCs.
+  - Orquestrar widgets menores para formar a página completa.
+ 
+---
+
+- **Vantagens**:
+  - **Organização**: [Separação de responsabilidades](https://en.wikipedia.org/wiki/Separation_of_concerns) entre diferentes funcionalidades.
+  - **Reutilização**: Widgets podem ser reutilizados entre screens.
+  - **Manutenibilidade**: Mudanças em uma screen não afetam outras.
+---
+
+- **Links Úteis**:
+  - [Material Design](https://material.io/design) - Guidelines de design do Google
+
+---
+
+- **Possíveis problemas e observações**:
+  - Screens muito grandes podem ser difíceis de manter ([God Object antipattern](https://en.wikipedia.org/wiki/God_object)).
+  - Importante extrair widgets reutilizáveis quando apropriado.
+  - Evitar lógica de negócio diretamente nas screens.
+
+#### Widgets
+
+- **Visão geral**: Widgets são componentes reutilizáveis, responsáveis por encapsular funcionalidades visuais específicas e promover reutilização de código.
+
+---
+
+- **Responsabilidade**: Encapsular componentes visuais reutilizáveis.
+  - Implementar elementos visuais específicos.
+  - Encapsular lógica de apresentação simples.
+  - Promover reutilização.
+  - Manter [consistência visual](https://en.wikipedia.org/wiki/Design_system) da aplicação.
+
+---
+
+- **Vantagens**:
+  - **Reutilização**: Mesmo componente usado em múltiplas telas ([DRY Principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)).
+
+---
+
+- **Tipos de Widgets**:
+  - **Widgets Globais**: Componentes usados em toda aplicação.
+  - **Widgets Específicos**: Componentes únicos de uma funcionalidade.
+  - **Widgets de Layout**: Organização e estruturação visual ([Layout Management](https://en.wikipedia.org/wiki/Layout_manager)).
+
+---
+
+- **Links Úteis**:
+  - [Design Systems](https://en.wikipedia.org/wiki/Design_system) - Sistemas de design para consistência
+
+---
+
+- **Possíveis problemas e observações**:
+  - Widgets muito genéricos podem ser difíceis de usar.
+  - Excesso de parâmetros pode indicar responsabilidades mal definidas.
+  - Importante balancear entre flexibilidade e simplicidade.
+
+### Locator
+    
+- **Visão geral**: O Locator é responsável por gerenciar a injeção de dependências na aplicação, facilitando a criação e o fornecimento de instâncias de classes necessárias em diferentes partes do código.
+
+- **Responsabilidade**:
+  - Gerenciar o ciclo de vida das dependências.
+  - Fornecer instâncias configuradas para diferentes contextos.
+  - Facilitar a troca de implementações (ex.: para testes).
+  - Promover [Inversão de Controle](https://en.wikipedia.org/wiki/Inversion_of_control).
+
+- **Vantagens**:
+  - **Desacoplamento**: Reduz dependências diretas entre classes.
+  - [Lazy Loading](https://en.wikipedia.org/wiki/Lazy_loading) - Carregamento sob demanda de dependências.
 
 
 ## Pacotes usados
