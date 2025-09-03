@@ -1,5 +1,4 @@
 import 'package:flutter_challenge/data/exceptions/data_exceptions.dart';
-import 'package:flutter_challenge/data/services/assets_service.dart';
 import 'package:flutter_challenge/data/services/place/place_service.dart';
 import 'package:flutter_challenge/domain/entity/place_entity.dart';
 import 'package:flutter_test/flutter_test.dart';

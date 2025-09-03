@@ -29,8 +29,9 @@ class ImplDeviceInfoRepository implements DeviceInfoRepository {
   void _handleFetchPlatformVersionFailure(Exception e) {
     if (e is NotImplementedPluginException) {
       logger.e('Plugin not found: $e');
+    } else {
+      logger.e('Unknown Exception: $e');
     }
-    logger.e('Unknown Exception: $e');
   }
 
   String _mapDeviceToString(DeviceInfoEntity info) => info.osVersion;
