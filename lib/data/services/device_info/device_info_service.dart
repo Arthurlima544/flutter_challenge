@@ -12,9 +12,9 @@ class DeviceInfoService {
     final ResultDart<String, Exception> result = await _platformService
         .callPlatformMethod(platformMethodForFetchOSVersion);
 
-    return result.map(_mapResultToDeviceInfo);
+    return result.flatMap(_mapResultToDeviceInfo);
   }
 
-  DeviceInfoEntity _mapResultToDeviceInfo(String osVersion) =>
-      DeviceInfoEntity(osVersion: osVersion);
+  Result<DeviceInfoEntity> _mapResultToDeviceInfo(String osVersion) =>
+      Success(DeviceInfoEntity(osVersion: osVersion));
 }
