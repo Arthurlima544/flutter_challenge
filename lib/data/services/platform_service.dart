@@ -4,9 +4,8 @@ import 'package:result_dart/result_dart.dart';
 import '../exceptions/data_exceptions.dart';
 
 class PlatformService {
-  static const MethodChannel _channel = MethodChannel(
-    'samples.flutter.dev/info',
-  );
+  PlatformService(this._channel);
+  final MethodChannel _channel;
 
   AsyncResult<String> callPlatformMethod(String methodName) async {
     try {

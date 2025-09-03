@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data/repository/impl_device_info_repository.dart';
@@ -14,7 +15,9 @@ final GetIt getIt = GetIt.instance;
 void setupLocator() {
   getIt
     ..registerLazySingleton<AssetsService>(AssetsService.new)
-    ..registerLazySingleton<PlatformService>(PlatformService.new)
+    ..registerLazySingleton<PlatformService>(
+      () => PlatformService(const MethodChannel('samples.flutter.dev/info')),
+    )
     ..registerLazySingleton<PlaceService>(
       () => PlaceService(getIt<AssetsService>()),
     )

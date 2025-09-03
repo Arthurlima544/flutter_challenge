@@ -1,6 +1,7 @@
 import 'package:result_dart/result_dart.dart';
 
 import '../../../domain/entity/device_info_entity.dart';
+import '../../../utils/consts.dart';
 import '../platform_service.dart';
 
 class DeviceInfoService {
@@ -9,7 +10,7 @@ class DeviceInfoService {
 
   AsyncResult<DeviceInfoEntity> fetchOsVersion() async {
     final ResultDart<String, Exception> result = await _platformService
-        .callPlatformMethod('getOSVersion');
+        .callPlatformMethod(platformMethodForFetchOSVersion);
 
     return result.map(_mapResultToDeviceInfo);
   }
