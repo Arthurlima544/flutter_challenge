@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../domain/model/place/place.dart';
+import '../domain/entity/place_entity.dart';
 import 'routes/skill_playground_router_delegate.dart';
 
-dynamic mapOnTapByPlaceTitle(BuildContext context, Place place) {
+dynamic mapOnTapByPlaceTitle(BuildContext context, PlaceEntity place) {
   switch (place.title) {
     case 'CustomPainter Basics':
       return () {
