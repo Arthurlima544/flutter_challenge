@@ -3,10 +3,10 @@ import 'package:flutter_challenge/data/exceptions/data_exceptions.dart';
 import 'package:flutter_challenge/data/services/platform_service.dart';
 import 'package:flutter_challenge/utils/consts.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:result_dart/src/result_dart_base.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:result_dart/src/result_dart_base.dart';
 
-class MockMethodChannel extends Mock implements MethodChannel {}
+import '../../utils/mocks.dart';
 
 void main() {
   late MockMethodChannel mockMethodChannel;

@@ -7,7 +7,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:result_dart/result_dart.dart';
 import 'package:result_dart/src/result_dart_base.dart';
 
-class MockAssetsService extends Mock implements AssetsService {}
+import '../../../utils/mocks.dart';
 
 void main() {
   late MockAssetsService mockAssetsService;
