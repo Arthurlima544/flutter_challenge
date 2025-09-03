@@ -14,15 +14,22 @@ class PlaceService {
       'assets/places.json',
     );
 
-    return result.map(_parsePlaces);
+    return result.flatMap(_parsePlaces);
   }
 
-  List<PlaceEntity> _parsePlaces(String jsonString) {
-    final List<dynamic> jsonList = jsonDecode(jsonString);
-    return jsonList
-        .map(
-          (dynamic item) => PlaceEntity.fromJson(item as Map<String, dynamic>),
-        )
-        .toList();
+  Result<List<PlaceEntity>> _parsePlaces(String jsonString) {
+    try {
+      final List<dynamic> jsonList = jsonDecode(jsonString);
+      return Success(
+        jsonList
+            .map(
+              (dynamic item) =>
+                  PlaceEntity.fromJson(item as Map<String, dynamic>),
+            )
+            .toList(),
+      );
+    } on Exception catch (e) {
+      return Failure(e);
+    }
   }
 }
