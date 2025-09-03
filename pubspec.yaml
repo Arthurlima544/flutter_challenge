@@ -17,6 +17,7 @@ dependencies:
   get_it: ^8.2.0
   json_annotation: ^4.9.0
   logger: ^2.6.1
+  mocktail: ^1.0.4
   result_dart: ^2.1.1
 
 dev_dependencies:
