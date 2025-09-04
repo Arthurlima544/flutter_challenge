@@ -4,7 +4,6 @@ import 'package:flutter_challenge/domain/entity/place_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:result_dart/result_dart.dart';
-import 'package:result_dart/src/result_dart_base.dart';
 
 import '../../../utils/mocks.dart';
 
@@ -20,9 +19,10 @@ void main() {
     test(
       'Should continue passing the exception in fetchPlaces to next layers',
       () async {
-        when(
-          () => mockAssetsService.loadAsset(any()),
-        ).thenAnswer((_) async => const Failure(AssetNotFoundException('')));
+        when(() => mockAssetsService.loadAsset(any())).thenAnswer(
+          (_) async =>
+              const Failure<String, Exception>(AssetNotFoundException('')),
+        );
 
         final ResultDart<List<PlaceEntity>, Exception> res = await placeService
             .fetchPlaces();

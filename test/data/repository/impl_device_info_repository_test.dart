@@ -19,7 +19,9 @@ void main() {
   group('device_info_repository', () {
     test('Should Stop execution when platform version not found', () async {
       when(() => mockDeviceInfoService.fetchOsVersion()).thenAnswer(
-        (_) async => const Failure(NotImplementedPluginException('')),
+        (_) async => const Failure<DeviceInfoEntity, Exception>(
+          NotImplementedPluginException(''),
+        ),
       );
 
       final ResultDart<String, Exception> result = await deviceInfoRepository
@@ -30,7 +32,9 @@ void main() {
 
     test('Should cache platform version when found and reuse it', () async {
       when(() => mockDeviceInfoService.fetchOsVersion()).thenAnswer(
-        (_) async => const Success(DeviceInfoEntity(osVersion: '17.5')),
+        (_) async => const Success<DeviceInfoEntity, Exception>(
+          DeviceInfoEntity(osVersion: '17.5'),
+        ),
       );
 
       final ResultDart<String, Exception> result = await deviceInfoRepository

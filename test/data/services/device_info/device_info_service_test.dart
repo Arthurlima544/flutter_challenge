@@ -26,7 +26,8 @@ void main() {
             platformMethodForFetchOSVersion,
           ),
         ).thenAnswer(
-          (_) async => const Failure(InvalidMethodException('Error')),
+          (_) async =>
+              const Failure<String, Exception>(InvalidMethodException('Error')),
         );
 
         final ResultDart<DeviceInfoEntity, Exception> res =

@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:result_dart/src/result_dart_base.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   test(
     'Ensure AssetsService is catching AssetNotFoundException when asset is not found',
     () async {
