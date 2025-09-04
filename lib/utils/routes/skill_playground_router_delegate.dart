@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../domain/repository/device_info_repository.dart';
+import '../../domain/repository/place_repository.dart';
+import '../../locator.dart';
 import '../../presentation/blocs/counter/counter_bloc.dart';
 import '../../presentation/blocs/home/home_bloc.dart';
 import '../../presentation/blocs/isolate/isolate_bloc.dart';
 import '../../presentation/blocs/platform_channels/platform_channels_bloc.dart';
-import '../../domain/repository/device_info_repository.dart';
-import '../../domain/repository/place_repository.dart';
-import '../../locator.dart';
 import '../../presentation/screens/10_slivers/slivers_screen.dart';
 import '../../presentation/screens/1_home/home_screen.dart';
 import '../../presentation/screens/2_custom_painter/custom_painter_screen.dart';

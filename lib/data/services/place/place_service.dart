@@ -20,7 +20,7 @@ class PlaceService {
   Result<List<PlaceEntity>> _parsePlaces(String jsonString) {
     try {
       final List<dynamic> jsonList = jsonDecode(jsonString);
-      return Success(
+      return Success<List<PlaceEntity>, Exception>(
         jsonList
             .map(
               (dynamic item) =>
@@ -29,7 +29,7 @@ class PlaceService {
             .toList(),
       );
     } on Exception catch (e) {
-      return Failure(e);
+      return Failure<List<PlaceEntity>, Exception>(e);
     }
   }
 }

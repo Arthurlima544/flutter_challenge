@@ -14,7 +14,7 @@ class ImplPlaceRepository implements PlaceRepository {
   @override
   AsyncResult<List<PlaceEntity>> fetchPlaces() async {
     if (_cachedPlaces != null) {
-      return Success(_cachedPlaces!);
+      return _cachedPlaces!.toSuccess();
     }
     return placeService
         .fetchPlaces() //
@@ -37,5 +37,5 @@ class ImplPlaceRepository implements PlaceRepository {
 
   /// Recover FetchPlaces errors by sending a empty list
   Result<List<PlaceEntity>> _recoverFetchPlaces(Exception e) =>
-      const Success(<PlaceEntity>[]);
+      const Success<List<PlaceEntity>, Exception>(<PlaceEntity>[]);
 }

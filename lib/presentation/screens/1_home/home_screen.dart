@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../blocs/home/home_bloc.dart';
 import '../../../domain/entity/place_entity.dart';
+import '../../blocs/home/home_bloc.dart';
 import 'widgets/home_card.dart';
 
 class HomeScreen extends StatelessWidget {

@@ -14,16 +14,15 @@ class ImplDeviceInfoRepository implements DeviceInfoRepository {
   @override
   AsyncResult<String> fetchPlatformVersion() async {
     if (cachedDeviceInfo != null) {
-      return Success(cachedDeviceInfo!.osVersion);
+      return Success<String, Exception>(cachedDeviceInfo!.osVersion);
     }
     return _deviceInfoService
         .fetchOsVersion()
         .onFailure(_handleFetchPlatformVersionFailure)
         .map(_mapDeviceToString)
-        .onSuccess(
-          (String newDeviceInfo) =>
-              cachedDeviceInfo = DeviceInfoEntity(osVersion: newDeviceInfo),
-        );
+        .onSuccess((String newDeviceInfo) {
+          cachedDeviceInfo = DeviceInfoEntity(osVersion: newDeviceInfo);
+        });
   }
 
   void _handleFetchPlatformVersionFailure(Exception e) {

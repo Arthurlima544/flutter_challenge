@@ -16,5 +16,7 @@ class DeviceInfoService {
   }
 
   Result<DeviceInfoEntity> _mapResultToDeviceInfo(String osVersion) =>
-      Success(DeviceInfoEntity(osVersion: osVersion));
+      Success<DeviceInfoEntity, Exception>(
+        DeviceInfoEntity(osVersion: osVersion),
+      );
 }

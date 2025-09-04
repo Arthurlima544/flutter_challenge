@@ -12,19 +12,23 @@ class PlatformService {
       final String? res = await _channel.invokeMethod<String>(methodName);
 
       if (res == null) {
-        return const Failure(InvalidPlatformResultException('Data is null'));
+        return const Failure<String, Exception>(
+          InvalidPlatformResultException('Data is null'),
+        );
       }
-      return Success(res);
+      return Success<String, Exception>(res);
     } on MissingPluginException catch (e, s) {
-      return Failure(
+      return Failure<String, Exception>(
         NotImplementedPluginException(
           'Method $methodName not implemented in current platform: ${e.message}',
           s,
         ),
       );
-    } catch (e, s) {
+    } on Exception catch (e, s) {
       //PlatformExceptions and others...
-      return Failure(InvalidMethodException(e.toString(), s));
+      return Failure<String, Exception>(
+        InvalidMethodException(e.toString(), s),
+      );
     }
   }
 }
